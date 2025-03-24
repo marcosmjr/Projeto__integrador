@@ -1,4 +1,4 @@
-# Download e i8ntalação do node.js
+# Download e instalação do node.js
 ```bash
 https://nodejs.org/en/download/
 ```
