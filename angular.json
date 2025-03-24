@@ -3,19 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FabioArcondinionado": {
+    "FabioArCondicionado": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/fabio-arcondinionado",
+            "outputPath": "dist/fabio-ar-condicionado",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,6 +27,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -69,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "FabioArcondinionado:build:production"
+              "buildTarget": "FabioArCondicionado:build:production"
             },
             "development": {
-              "buildTarget": "FabioArcondinionado:build:development"
+              "buildTarget": "FabioArCondicionado:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,6 +86,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
             ],
             "scripts": []
