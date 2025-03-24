@@ -1,3 +1,25 @@
+# Download e i8ntalação do node.js
+```bash
+https://nodejs.org/en/download/
+```
+#instalar angular
+```bash
+npm i @angular/cli
+```
+
+# Usando componentes:
+Material
+```bash
+ng add @angular/material
+```
+BootStrap
+```bash
+ng add @ng-bootstrap/ng-bootstrap
+```
+NGPrime
+```bash
+npm install primeng @primeng/themes
+```
 # FabioArCondicionado
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.

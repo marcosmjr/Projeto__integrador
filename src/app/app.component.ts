@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+
+import { BannerCarrouselComponent } from './componentes/banner-carrousel/banner-carrousel.component';
+import { PaginaServicosComponent } from './componentes/pagina-servicos/pagina-servicos.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatButtonModule, MatMenuModule],
+  imports: [
+    RouterOutlet,
+     MatButtonModule,
+      MatMenuModule,
+      BannerCarrouselComponent,
+      PaginaServicosComponent
+    ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

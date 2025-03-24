@@ -1,0 +1,53 @@
+.moldura {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.menu {
+    border-bottom: 2px solid black;
+    
+ }
+
+.btn-menu{
+    margin-left: 20px;
+    padding: 20px;
+}
+
+.btn-menu-item:hover {
+  background-color: grey;
+
+}
+
+
+footer {
+    height: 200px;
+    background-color: #1ea2f5 ;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.footer-info{
+    display: flex;
+    flex-direction: row;
+    margin-left: 130px;
+    margin-top: 25px;
+    color: black;
+    
+}
+
+.footer-info p{
+    margin: 0px;
+}
+
+.footer-info p a {
+    color: black;
+    text-decoration: none;
+}
+
+#cnpj{
+    margin-top: 40px;
+}
+
+.endereco  {
+    margin-left: 300px;
+}

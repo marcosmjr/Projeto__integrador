@@ -1,6 +1,60 @@
-<button mat-button [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>Item 1</button>
-  <button mat-menu-item>Item 2</button>
-</mat-menu>
-<p>teste></p>
+<div class="moldura">
+  <div>
+    <app-banner-carrousel></app-banner-carrousel>
+  </div>
+  <div class="menu">
+    <button class="btn-menu" mat-button [matMenuTriggerFor]="menu">Serviços</button>
+    <mat-menu #menu="matMenu">
+      <button class="btn-menu-item" mat-menu-item>Instalação Residencia</button>
+      <button class="btn-menu-item" mat-menu-item>Intalação Comecial</button>
+      <button mat-menu-item>Limpeza</button>
+    </mat-menu>
+
+    <button class="btn-menu" mat-button>Produtos</button>
+    <button class="btn-menu" mat-button>Quem somos nós</button>
+    <button class="btn-menu" mat-button>Nossos Valores</button>
+    <button class="btn-menu" mat-button>Onde estamos</button>
+    <button class="btn-menu" mat-button>Contatos</button>
+    <button class="btn-menu" mat-button>Blog</button>
+  </div>
+
+
+<app-pagina-servicos></app-pagina-servicos>
+
+  <footer>
+  <div class="footer-info">
+    <div>
+      <div>
+          <p><a href="#">Serviços</a></p>
+          <p><a href="#">Produtos</a></p>
+          <p><a href="#">Quem Somos</a></p>
+          <p><a href="#">Nossos Valores</a></p>
+      </div>
+      <div>
+        <p id="cnpj">CNPJ: 52.535.091.0001-61</p>
+      </div>
+    </div>
+    <div>
+      <p><a href="#">Onde Estamos</a></p>
+      <p><a href="#">Contatos</a></p>
+      <p><a href="#">Blog</a></p>
+    
+  </div>
+    <div class="endereco">
+      <p>
+        Endereço: Rua romeu benazi, n° 153 <br>
+        Bairro: Parque Nova Carioba,<br>
+        Cidade: Campinas<br>
+        Estado: São Paulo<br>
+        CEP: 13473-789<br>
+        Telefone: (19) 974087892
+      </p>
+    </div>
+  </div>
+  </footer>
+  
+</div>
+
+
+
+
