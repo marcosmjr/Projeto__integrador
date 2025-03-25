@@ -1,13 +1,16 @@
-# Download e instalação do node.js
+# Depois de baixar o projeto, rodar dentro da pasta do projeto via terminal os comandos marcados com 1, 2 e 3 logo a baixo.
+
+
+#  1 Download e instalação do node.js
 ```bash
 https://nodejs.org/en/download/
 ```
-#instalar angular
+# 2 instalar angular
 ```bash
 npm i @angular/cli
 ```
 
-# Usando componentes:
+# 3 Usando componentes:
 Material
 ```bash
 ng add @angular/material

@@ -1,0 +1,30 @@
+.moldura {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.form1 {
+    display: flex;  
+}
+
+.form2 {
+    display: flex;  
+}
+.form2_div2{
+    display: flex;
+    flex-direction: column;
+}
+
+.form2_div2 div{
+    margin-left: 40px;
+}
+
+.mat-form1{
+    width: 500px;
+}
+
+.mat-form2{
+    margin-left: 40px;
+    width: 500px;
+}

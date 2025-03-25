@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+//import { RouterOutlet } from '@angular/router';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,7 +15,7 @@ import { PaginaOndeEstamosComponent } from './componentes/pagina-onde-estamos/pa
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet,
+    //RouterOutlet,
      MatButtonModule,
       MatMenuModule,
       BannerCarrouselComponent,
