@@ -19,7 +19,7 @@ BootStrap
 ```bash
 ng add @ng-bootstrap/ng-bootstrap
 ```
-NGPrime
+PRIMENG
 ```bash
 npm install primeng @primeng/themes
 ```

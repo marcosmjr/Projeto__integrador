@@ -13,11 +13,12 @@
     display: flex;
     flex-direction: column;
     margin-left: 40px;
+    min-width: 500px;
 }
 
 
 .mat-form1{
-    width: 500px;
+    min-width: 500px;
 }
 
 .mat-form2{
@@ -39,12 +40,9 @@ legend {
     font-size: 15px;
 }
 
-.checkbox {
-
-}
-
-.pessoa_juridica {
-    margin-left: 200px;
+.checkBox {
+ font-family: 'Courier New', Courier, monospace;
+ font-size: 40px;
 }
 
 .menssagem {
@@ -53,9 +51,10 @@ legend {
 }
 
 .btn-enviar {
-    margin-left: 350px;
+   
+    margin-inline-start: 350px;
     margin-top: 5px;
-    width: 300px;
+    width: 295px;
     border-radius: 10px;
 }
 
@@ -63,4 +62,13 @@ legend {
     margin-left: 10px;
     margin-top: 5px;
     
+}
+
+.txt-area {
+    min-width: 1040px;
+}
+.largura-maxima {
+    display: flex;
+    flex-direction: row;
+    min-width: 1040px;
 }

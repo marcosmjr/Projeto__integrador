@@ -24,18 +24,18 @@
             </mat-form-field> 
         </div>   
         <div class="form2_div2">
-            <legend>Seviços</legend>
-                <section class="checkBox">
-                    <mat-checkbox class="example-margin">Instalação</mat-checkbox>
-                    <mat-checkbox class="example-margin">Manutenção</mat-checkbox>
-                    <mat-checkbox class="example-margin">Outros</mat-checkbox>
+            <legend>Seviços:</legend>
+                <section>
+                    <mat-checkbox>Instalação</mat-checkbox>
+                    <mat-checkbox>Manutenção</mat-checkbox>
+                    <mat-checkbox>Outros</mat-checkbox>
                 </section>
         </div>
     </div>
     <div>
         <div>
-            <section class="checkBox_WhatsApp">
-                <mat-checkbox class="example-margin">Usar o mesmo número paraWhatsApp?</mat-checkbox>
+            <section>
+                <mat-checkbox>Usar o mesmo número para WhatsApp?</mat-checkbox>
             </section>
         </div>  
         <div class="form1">
@@ -53,18 +53,18 @@
             </div>
         </div> 
         <div class="form1"> 
-            <div>
-                <legend>Prefere Atendimento por:</legend>
-                <section class="checkBox">
-                    <mat-checkbox class="example-margin">Telefone</mat-checkbox>
-                    <mat-checkbox class="example-margin">WhatsApp</mat-checkbox>
-                    <mat-checkbox class="example-margin">E-Mail</mat-checkbox>
+            <div class="mat-form1">
+                <legend>Prefere retorno por:</legend>
+                <section>
+                    <mat-checkbox>Telefone</mat-checkbox>
+                    <mat-checkbox>WhatsApp</mat-checkbox>
+                    <mat-checkbox>E-Mail</mat-checkbox>
                 </section>
             </div>
-            <div class="pessoa_juridica">
+            <div>
                 <div>
-                    <section class="checkbox, mat-form2">
-                        <mat-checkbox class="example-margin">É pessoa juŕdica?</mat-checkbox>  
+                    <section class="mat-form2">
+                        <mat-checkbox>É pessoa jurídica?</mat-checkbox>  
                     </section>
                 </div>
                 <div>
@@ -119,19 +119,19 @@
 
     </div>
     <!--Área de Texto PRIMENG https://primeng.org/textarea -->
-    <div class="card flex justify-center">
+    <div class="card flex justify-center, txt-area">
         <label class="menssagem">Menssagem</label>
         <textarea rows="8" cols="123" pTextarea [(ngModel)]="value" [autoResize]="false"></textarea>
     </div>
-    <div class="form1">
+    <div class="largura-maxima">
         <div>
-            <section class="checkbox">
-                <mat-checkbox class="example-margin">Li e concordo com política de privacidade?</mat-checkbox>  
+            <section>
+                <mat-checkbox>Li e concordo com política de privacidade?</mat-checkbox>  
             </section>
         </div>
         <div class="leia_termos"><a href="#">Leia aqui</a></div>
         <div>
-            <button mat-flat-button class="btn-enviar">Basic</button>
+            <button mat-flat-button class="btn-enviar">Enviar</button>
         </div>
     </div>
 </div>
