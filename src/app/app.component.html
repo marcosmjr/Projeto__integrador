@@ -5,38 +5,53 @@
   <div class="menu">
     <button class="btn-menu" mat-button [matMenuTriggerFor]="menu">Serviços</button>
     <mat-menu #menu="matMenu">
+      <button class="btn-menu-item" mat-menu-item (click)="pagina_servicos()">Inicio</button>
       <button class="btn-menu-item" mat-menu-item>Instalação Residencia</button>
       <button class="btn-menu-item" mat-menu-item>Intalação Comecial</button>
       <button mat-menu-item>Limpeza</button>
     </mat-menu>
 
-    <button class="btn-menu" mat-button>Produtos</button>
-    <button class="btn-menu" mat-button>Quem somos nós</button>
-    <button class="btn-menu" mat-button>Nossos Valores</button>
-    <button class="btn-menu" mat-button>Onde estamos</button>
-    <button class="btn-menu" mat-button>Contatos</button>
+    <button class="btn-menu" mat-button (click)="pagina_produtos()">Produtos</button>
+    <button class="btn-menu" mat-button (click)="pagina_quem_somos()">Quem somos nós</button>
+    <button class="btn-menu" mat-button (click)="pagina_nossos_valores()">Nossos Valores</button>
+    <button class="btn-menu" mat-button (click)="pagina_onde_estamos()">Onde estamos</button>
+    <button class="btn-menu" mat-button (click)="pagina_contato()">Contato</button>
     <button class="btn-menu" mat-button>Blog</button>
   </div>
+<div>
 
-
-<app-pagina-servicos></app-pagina-servicos>
+  @if (selecaoPagina == 0) {
+      <app-pagina-servicos></app-pagina-servicos>
+  } @else if (selecaoPagina == 1) {
+      <app-pagina-produtos></app-pagina-produtos>  
+  } @else if (selecaoPagina == 2) {
+      <app-pagina-quem-somos-nos></app-pagina-quem-somos-nos>  
+  } @else if (selecaoPagina == 3) {
+      <app-pagina-nossos-valores></app-pagina-nossos-valores>  
+  } @else if (selecaoPagina == 4) {
+      <app-pagina-onde-estamos></app-pagina-onde-estamos>  
+  } @else if (selecaoPagina == 5) {
+      <app-pagina-contato></app-pagina-contato>  
+  }
+    
+</div>
 
   <footer>
   <div class="footer-info">
     <div>
       <div>
-          <p><a href="#">Serviços</a></p>
-          <p><a href="#">Produtos</a></p>
-          <p><a href="#">Quem Somos</a></p>
-          <p><a href="#">Nossos Valores</a></p>
+          <p><a href="#" (click)="pagina_servicos()">Serviços</a></p>
+          <p><a href="#"(click)="pagina_produtos()">Produtos</a></p>
+          <p><a href="#"(click)="pagina_quem_somos()">Quem Somos</a></p>
+          <p><a href="#" (click)="pagina_nossos_valores">Nossos Valores</a></p>
       </div>
       <div>
         <p id="cnpj">CNPJ: 52.535.091.0001-61</p>
       </div>
     </div>
     <div>
-      <p><a href="#">Onde Estamos</a></p>
-      <p><a href="#">Contatos</a></p>
+      <p><a href="#" (click)="pagina_onde_estamos">Onde Estamos</a></p>
+      <p><a href="#" (click)="pagina_contato()">Contatos</a></p>
       <p><a href="#">Blog</a></p>
     
   </div>

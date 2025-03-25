@@ -1,6 +1,9 @@
 .moldura {
-    padding-left: 100px;
-    padding-right: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    min-width: 930px;
+    
+    
 }
 
 .menu {

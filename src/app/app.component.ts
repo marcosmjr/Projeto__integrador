@@ -6,6 +6,11 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { BannerCarrouselComponent } from './componentes/banner-carrousel/banner-carrousel.component';
 import { PaginaServicosComponent } from './componentes/pagina-servicos/pagina-servicos.component';
+import { PaginaContatoComponent } from './componentes/pagina-contato/pagina-contato.component';
+import { PaginaProdutosComponent } from './componentes/pagina-produtos/pagina-produtos.component';
+import { PaginaQuemSomosNosComponent } from './componentes/pagina-quem-somos-nos/pagina-quem-somos-nos.component';
+import { PaginaNossosValoresComponent } from './componentes/pagina-nossos-valores/pagina-nossos-valores.component';
+import { PaginaOndeEstamosComponent } from './componentes/pagina-onde-estamos/pagina-onde-estamos.component';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +19,43 @@ import { PaginaServicosComponent } from './componentes/pagina-servicos/pagina-se
      MatButtonModule,
       MatMenuModule,
       BannerCarrouselComponent,
-      PaginaServicosComponent
+      PaginaServicosComponent,
+      PaginaContatoComponent,
+      PaginaProdutosComponent,
+      PaginaQuemSomosNosComponent,
+      PaginaNossosValoresComponent,
+      PaginaOndeEstamosComponent
     ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'FabioArCondicionado';
+  
+  selecaoPagina: number = 0;
+
+  pagina_servicos(){
+    this.selecaoPagina = 0;
+  };
+
+  pagina_produtos(){
+    this.selecaoPagina = 1;
+  };
+
+  pagina_quem_somos(){
+    this.selecaoPagina = 2;
+  };
+
+  pagina_nossos_valores(){
+    this.selecaoPagina = 3;
+  };
+
+  pagina_onde_estamos(){
+    this.selecaoPagina = 4;
+  }
+
+  pagina_contato(){
+    this.selecaoPagina = 5;
+  };
+
+
 }
