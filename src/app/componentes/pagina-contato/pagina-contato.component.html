@@ -9,13 +9,13 @@
         </div>
         <div>
             <mat-form-field class="mat-form1, mat-form2">
-                <mat-label>Sobrenome</mat-label>
+                <mat-label>Sobrenome:</mat-label>
                 <input matInput>
             </mat-form-field>                          
         </div>
     </div>
 
-    <div class="form2">
+    <div class="form1">
         <div> 
             <mat-form-field class="mat-form1">
                 <mat-label>Telefone:</mat-label>
@@ -23,28 +23,113 @@
             </mat-form-field> 
         </div>   
         <div class="form2_div2">
-            <div>
-                <p>Seviços</p>
-            </div>
-            <div>
-                <section class="checkBox_servicos">
+            <legend>Seviços</legend>
+                <section class="checkBox">
                     <mat-checkbox class="example-margin">Instalação</mat-checkbox>
                     <mat-checkbox class="example-margin">Manutenção</mat-checkbox>
                     <mat-checkbox class="example-margin">Outros</mat-checkbox>
                 </section>
+        </div>
+    </div>
+    <div>
+        <div>
+            <section class="checkBox_WhatsApp">
+                <mat-checkbox class="example-margin">Usar o mesmo número paraWhatsApp?</mat-checkbox>
+            </section>
+        </div>  
+        <div class="form1">
+            <div>
+                <mat-form-field class="mat-form1">
+                    <mat-label>WhatsApp:</mat-label>
+                    <input matInput>
+                </mat-form-field> 
+            </div>    
+            <div>
+                <mat-form-field class="mat-form1,  mat-form2">
+                    <mat-label>E-Mail:</mat-label>
+                    <input matInput>
+                </mat-form-field> 
+            </div>
+        </div> 
+        <div class="form1"> 
+            <div>
+                <legend>Prefere Atendimento por:</legend>
+                <section class="checkBox">
+                    <mat-checkbox class="example-margin">Telefone</mat-checkbox>
+                    <mat-checkbox class="example-margin">WhatsApp</mat-checkbox>
+                    <mat-checkbox class="example-margin">E-Mail</mat-checkbox>
+                </section>
+            </div>
+            <div class="pessoa_juridica">
+                <div>
+                    <section class="checkbox, mat-form2">
+                        <mat-checkbox class="example-margin">É pessoa juŕdica?</mat-checkbox>  
+                    </section>
+                </div>
+                <div>
+                    <mat-form-field class="mat-form1, mat-form2">
+                        <mat-label>Nome da Empresa:</mat-label>
+                        <input matInput [disabled]="true">
+                    </mat-form-field>  
+                </div>
+            </div>
+        </div> 
+
+        <div class="form1">
+            <div>
+                <mat-form-field class="mat-form1">
+                    <mat-label>Rua, Av, etc:</mat-label>
+                    <input matInput>
+                </mat-form-field>  
+            </div>
+             
+            <div>
+                <mat-form-field class="mat-form3">
+                    <mat-label>Número:</mat-label>
+                    <input matInput>
+                </mat-form-field> 
+            </div>
+            <div>
+                <mat-form-field class="mat-form4">
+                    <mat-label>Bairro:</mat-label>
+                    <input matInput>
+                </mat-form-field> 
             </div>
         </div>
-        <div></div>   <div></div>    <div></div>
-    </div>
-    <div class="form3">
-        <div></div>   <div></div>
-        <div></div>   <div></div>
-    </div>
-    <div class="form4">
-        <div>
-            <div></div>   <div></div> <div></div>
-            <div></div>   <div></div>
+
+        <div class="form1">
+            <div>
+                <mat-form-field class="mat-form1">
+                    <mat-label>Cidade:</mat-label>
+                    <input matInput>
+                </mat-form-field> 
+            </div>
+            <div>
+                <mat-form-field class="mat-form3">
+                    <mat-label>UF</mat-label>
+                    <mat-select>
+                      @for (estado of estados; track estado) {
+                        <mat-option [value]="estado.value">{{estado.viewValue}}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+            </div>
         </div>
-        
+
+    </div>
+    <div class="card flex justify-center">
+        <label class="menssagem">Menssagem</label>
+        <textarea rows="8" cols="123" pTextarea [(ngModel)]="value" [autoResize]="false"></textarea>
+    </div>
+    <div class="form1">
+        <div>
+            <section class="checkbox">
+                <mat-checkbox class="example-margin">Li e concordo com política de privacidade?</mat-checkbox>  
+            </section>
+        </div>
+        <div class="leia_termos"><a href="#">Leia aqui</a></div>
+        <div>
+            <button mat-flat-button class="btn-enviar">Basic</button>
+        </div>
     </div>
 </div>
