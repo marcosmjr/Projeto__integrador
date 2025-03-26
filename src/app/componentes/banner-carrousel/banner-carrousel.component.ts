@@ -9,7 +9,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './banner-carrousel.component.css'
 })
 export class BannerCarrouselComponent {
-  images = ['fig1.jpg', 'fig2.jpg', 'fig3.jpg'].map((n) => `/img/${n}`);
+  images = ['Banner_logo.jpg', 'fig1.jpg', 'fig2.jpg'].map((n) => `/img/${n}`);
  
 
 }

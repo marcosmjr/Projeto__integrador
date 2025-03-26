@@ -5,13 +5,13 @@
         <div>
             <mat-form-field class="mat-form1">
                 <mat-label>Nome:</mat-label>
-                <input matInput>
+                <input matInput (change)="nome($event)">
             </mat-form-field> 
         </div>
         <div>
             <mat-form-field class="mat-form1, mat-form2">
                 <mat-label>Sobrenome:</mat-label>
-                <input matInput>
+                <input matInput (change)="sobrenome($event)">
             </mat-form-field>                          
         </div>
     </div>
@@ -64,13 +64,13 @@
             <div>
                 <div>
                     <section class="mat-form2">
-                        <mat-checkbox>É pessoa jurídica?</mat-checkbox>  
+                        <mat-checkbox (change)="pessoaJuridica(true)">É pessoa jurídica?</mat-checkbox>  
                     </section>
                 </div>
                 <div>
                     <mat-form-field class="mat-form1, mat-form2">
                         <mat-label>Nome da Empresa:</mat-label>
-                        <input matInput [disabled]="true">
+                        <input matInput id="juridica" [disabled]=nome_empresa_estado>
                     </mat-form-field>  
                 </div>
             </div>
