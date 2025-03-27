@@ -5,13 +5,13 @@
         <div>
             <mat-form-field class="mat-form1">
                 <mat-label>Nome:</mat-label>
-                <input matInput [(ngModel)]="contato.nome">
+                <input matInput [(ngModel)]="setNome">
             </mat-form-field> 
         </div>
         <div>
             <mat-form-field class="mat-form1, mat-form2">
                 <mat-label>Sobrenome:</mat-label>
-                <input matInput [(ngModel)]="contato.sobrenome">
+                <input matInput [(ngModel)]="setSobrenome">
             </mat-form-field>                          
         </div>
     </div>
@@ -20,7 +20,7 @@
         <div> 
             <mat-form-field class="mat-form1">
                 <mat-label>Telefone:</mat-label>
-                <input matInput [(ngModel)]="contato.telefone">
+                <input matInput [(ngModel)]="setTelefone">
             </mat-form-field> 
         </div>   
         <div class="form2_div2">
@@ -42,13 +42,13 @@
             <div>
                 <mat-form-field class="mat-form1">
                     <mat-label>WhatsApp:</mat-label>
-                    <input matInput [(ngModel)]="contato.whatsApp">
+                    <input matInput [(ngModel)]="setWhatsApp">
                 </mat-form-field> 
             </div>    
             <div>
                 <mat-form-field class="mat-form1,  mat-form2">
-                    <mat-label>E-Mail:</mat-label>
-                    <input matInput [(ngModel)]="contato.e_mail">
+                    <mat-label>e-mail:</mat-label>
+                    <input matInput type="email" [(ngModel)]="setEmail">
                 </mat-form-field> 
             </div>
         </div> 
@@ -70,7 +70,7 @@
                 <div>
                     <mat-form-field class="mat-form1, mat-form2">
                         <mat-label>Nome da Empresa:</mat-label>
-                        <input matInput [(ngModel)]="contato.nomeEmpresa" [disabled]=nome_empresa_estado>
+                        <input matInput [(ngModel)]="setNomeEmpresa" [disabled]=nome_empresa_estado>
                     </mat-form-field>  
                 </div>
             </div>
@@ -80,20 +80,20 @@
             <div>
                 <mat-form-field class="mat-form1">
                     <mat-label>Rua, Av, etc:</mat-label>
-                    <input matInput [(ngModel)]="contato.rua">
+                    <input matInput [(ngModel)]="setRua">
                 </mat-form-field>  
             </div>
              
             <div>
                 <mat-form-field class="mat-form3">
                     <mat-label>Número:</mat-label>
-                    <input matInput [(ngModel)]="contato.numero">
+                    <input matInput [(ngModel)]="setNumero">
                 </mat-form-field> 
             </div>
             <div>
                 <mat-form-field class="mat-form4">
                     <mat-label>Bairro:</mat-label>
-                    <input matInput [(ngModel)]="contato.bairro">
+                    <input matInput [(ngModel)]="setBairro">
                 </mat-form-field> 
             </div>
         </div>
@@ -102,13 +102,13 @@
             <div>
                 <mat-form-field class="mat-form1">
                     <mat-label>Cidade:</mat-label>
-                    <input matInput [(ngModel)]="contato.cidade">
+                    <input matInput [(ngModel)]="setCidade">
                 </mat-form-field> 
             </div>
             <div>
                 <mat-form-field class="mat-form3">
                     <mat-label>UF</mat-label>
-                    <mat-select [(ngModel)]="contato.uf" name="estado">
+                    <mat-select [(ngModel)]="setUF" name="estado">
                       @for (estado of estados; track estado) {
                         <mat-option [value]="estado.value">{{estado.viewValue}}</mat-option>
                       }
@@ -121,7 +121,7 @@
     <!--Área de Texto PRIMENG https://primeng.org/textarea -->
     <div class="card flex justify-center, txt-area">
         <label class="menssagem">Menssagem</label>
-        <textarea rows="8" cols="123" pTextarea [(ngModel)]="contato.mensagem" [autoResize]="false"></textarea>
+        <textarea rows="8" cols="123" pTextarea [(ngModel)]="setMensagem" [autoResize]="false"></textarea>
     </div>
     <div class="largura-maxima">
         <div>

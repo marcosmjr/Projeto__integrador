@@ -51,9 +51,36 @@ export class PaginaContatoComponent {
   private ckbServicoPreenchido: boolean =false;
   private ckbPreferenciaPreenchido: boolean =false;
 
-  
+  setNome: String = '';
+  setSobrenome: String = '';
+  setTelefone: String = '';
+  setWhatsApp: String = '';
+  setEmail: String = '';
+  setRua: String = '';
+  setNumero: String = '';
+  setBairro: String = '';
+  setCidade: String = '';
+  setUF: String = '';
 
-  value: string = '';
+  setNomeEmpresa: String = 'N/A';
+  setMensagem: String = '';
+
+  setContato(){
+    this.contato.setNome(this.setNome);
+    this.contato.setSobrenome(this.setSobrenome);
+    this.contato.setTelefone(this.setTelefone);
+    this.contato.setWhatsApp(this.setWhatsApp);
+    this.contato.setEmail(this.setEmail);
+    this.contato.setRua(this.setRua);
+    this.contato.setNumero(this.setNumero);
+    this.contato.setBairro(this.setBairro);
+    this.contato.setCidade(this.setCidade);
+    this.contato.setUF(this.setUF);
+    
+    this.contato.setNomeEmpresa(this.setNomeEmpresa);
+    this.contato.setMensagem(this.setMensagem);
+  }
+
   estados: UF[] = [
     {value: 'SP', viewValue: 'SP'},
     {value: 'AC', viewValue: 'AC'},
@@ -84,6 +111,8 @@ export class PaginaContatoComponent {
     {value: 'TO', viewValue: 'TO'},
   ];
 
+
+
   ckbInstalacao(evento: boolean){
       this.instalacao = evento;
   }
@@ -95,7 +124,6 @@ export class PaginaContatoComponent {
   ckbOutros(evento: boolean){
     this.outros = evento;
   }
-
 
   ckbTelefone(evento: boolean){
     this.telefone = evento;
@@ -111,30 +139,32 @@ export class PaginaContatoComponent {
 
   ckbUsarMesmoNumero(evento: boolean) {
     if(evento == true){
-      this.contato.whatsApp = this.contato.telefone;
+      this.contato.setWhatsApp(this.setTelefone);
+      this.setWhatsApp = this.setTelefone
     }else {
-      this.contato.whatsApp = '';
+      this.contato.setWhatsApp('');
+      this.setWhatsApp = '';
     }
   }
 
   ckbServico(): boolean{
     if(this.instalacao == true && this.manutencao == false && this.outros == false){
-      this.contato.servico = 'i';
+      this.contato.setServico('i');
     }else if (this.instalacao == false && this.manutencao == true && this.outros == false) {
-      this.contato.servico = 'm';
+      this.contato.setServico('m');
     } else if (this.instalacao == false && this.manutencao == false && this.outros == true) {
-      this.contato.servico = 'o';
+      this.contato.setServico('o');
     } else if (this.instalacao == true && this.manutencao == true && this.outros == false) {
-      this.contato.servico = 'im';
+      this.contato.setServico('im');
     } else if (this.instalacao == true && this.manutencao == false && this.outros == true) {
-      this.contato.servico = 'io';
+      this.contato.setServico('io');
     } else if (this.instalacao == false && this.manutencao == true && this.outros == true) {
-      this.contato.servico = 'mo';
+      this.contato.setServico('mo');
     } else if (this.instalacao == true && this.manutencao == true && this.outros == true) {
-      this.contato.servico = 'imo';
+      this.contato.setServico('imo');
     } else if (this.instalacao == false && this.manutencao == false && this.outros == false) {
-      this.contato.servico = '';
-      alert("Escolher um assunto no campo Serviços");
+      this.contato.setServico('');
+      alert("Escolha um assunto no campo Serviços");
       return false;
     }
     return true
@@ -142,21 +172,21 @@ export class PaginaContatoComponent {
 
   cbkPreferencia(): boolean{
     if(this.telefone == true && this.whatsApp == false && this.e_mail == false){
-      this.contato.preferencia = 't';
+      this.contato.setPreferencia('t');
     }else if (this.telefone == false && this.whatsApp == true && this.e_mail == false) {
-      this.contato.preferencia = 'w';
+      this.contato.setPreferencia('w');
     } else if (this.telefone == false && this.whatsApp == false && this.e_mail == true) {
-      this.contato.preferencia = 'e';
+      this.contato.setPreferencia('e');
     } else if (this.telefone == true && this.whatsApp == true && this.e_mail == false) {
-      this.contato.preferencia = 'tw';
+      this.contato.setPreferencia('tw');
     } else if (this.telefone == true && this.whatsApp == false && this.e_mail == true) {
-      this.contato.preferencia = 'te';
+      this.contato.setPreferencia('te');
     } else if (this.telefone == false && this.whatsApp == true && this.e_mail == true) {
-      this.contato.preferencia = 'we';
+      this.contato.setPreferencia('we');
     } else if (this.telefone == true && this.whatsApp == true && this.e_mail == true) {
-      this.contato.preferencia = 'twe';
+      this.contato.setPreferencia('twe');
     } else if (this.telefone == false && this.whatsApp == false && this.e_mail == false) {
-      this.contato.preferencia = '';
+      this.contato.setPreferencia('');
       alert("É necessário escolher um meio de comunicação preferido");
       return false;
     }
@@ -171,15 +201,16 @@ export class PaginaContatoComponent {
   ckbPessoaJuridica(evento: boolean){
     if(evento == true){
       this.nome_empresa_estado = false;
-      this.contato.nomeEmpresa = '';
+      this.setNomeEmpresa = '';
+
     } else {
       this.nome_empresa_estado = true;
-      this.contato.nomeEmpresa = 'N/A';
+      this.setNomeEmpresa = 'N/A';
 
     }
   }
 
-    btnEnviar(){
+  btnEnviar(){
       if (this.termoPrivacidade == false){
         alert("Para enviar a mensagem é necessario ler e concordar com os termos de privacidade")
         return;
@@ -190,29 +221,9 @@ export class PaginaContatoComponent {
       if (this.ckbServicoPreenchido == false || this.ckbPreferenciaPreenchido == false){
           return;
       }
-
-    
-      console.log(this.contato.nome);
-      console.log(this.contato.sobrenome);
-      console.log(this.contato.telefone);
-      console.log(this.contato.whatsApp);
-      console.log(this.contato.e_mail);
-      console.log(this.contato.nomeEmpresa);
-      console.log(this.contato.rua);
-      console.log(this.contato.numero);
-      console.log(this.contato.bairro);
-      console.log(this.contato.cidade);
-      console.log(this.contato.uf);
-      console.log(this.instalacao);
-      console.log(this.manutencao);
-      console.log(this.outros);
-      console.log(this.contato.servico);
-      console.log(this.contato.preferencia);
-      console.log(this.contato.mensagem);
-
-
+      
+      this.setContato();
     }
-
 
 
 }
