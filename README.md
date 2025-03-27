@@ -23,6 +23,10 @@ PRIMENG
 ```bash
 npm install primeng @primeng/themes
 ```
+NGX MASK - https://www.npmjs.com/package/ngx-mask
+```bash
+npm i ngx-mask
+```
 # FabioArCondicionado
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.

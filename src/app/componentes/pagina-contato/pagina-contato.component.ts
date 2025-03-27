@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { Contato } from './contato';
 import { Validacao } from './validação';
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
 
 interface UF {
@@ -28,7 +29,9 @@ interface UF {
     MatCheckboxModule,
     TextareaModule,
     MatButtonModule,
-    MatCheckbox
+    MatCheckbox,
+    NgxMaskDirective, 
+    NgxMaskPipe
   ],
   templateUrl: './pagina-contato.component.html',
   styleUrl: './pagina-contato.component.css',
@@ -237,6 +240,10 @@ export class PaginaContatoComponent {
 
       if(!(this.valida.validaTelefone(this.setTelefone)) || this.setTelefone == ''){
         alert('Verifique se numero do telefone esta correto');
+      }
+
+      if(!(this.valida.validaTelefone(this.setWhatsApp)) && this.setWhatsApp != ''){
+        alert('Verifique se numero do whatsApp esta correto');
       }
       
       this.setContato();
