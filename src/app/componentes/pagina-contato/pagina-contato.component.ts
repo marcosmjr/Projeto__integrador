@@ -10,6 +10,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { MatButtonModule } from '@angular/material/button';
 
 import { Contato } from './contato';
+import { Validacao } from './validação';
 
 
 interface UF {
@@ -36,6 +37,8 @@ interface UF {
 export class PaginaContatoComponent {
 
   contato: Contato = new Contato;
+  valida: Validacao = new Validacao;
+
   nome_empresa_estado: boolean = true;
 
   private instalacao: boolean = false;
@@ -51,19 +54,19 @@ export class PaginaContatoComponent {
   private ckbServicoPreenchido: boolean =false;
   private ckbPreferenciaPreenchido: boolean =false;
 
-  setNome: String = '';
-  setSobrenome: String = '';
-  setTelefone: String = '';
-  setWhatsApp: String = '';
-  setEmail: String = '';
-  setRua: String = '';
-  setNumero: String = '';
-  setBairro: String = '';
-  setCidade: String = '';
-  setUF: String = '';
+  setNome: string = '';
+  setSobrenome: string = '';
+  setTelefone: string = '';
+  setWhatsApp: string = '';
+  setEmail: string = '';
+  setRua: string = '';
+  setNumero: string = '';
+  setBairro: string = '';
+  setCidade: string = '';
+  setUF: string = '';
 
-  setNomeEmpresa: String = 'N/A';
-  setMensagem: String = '';
+  setNomeEmpresa: string = 'N/A';
+  setMensagem: string = '';
 
   setContato(){
     this.contato.setNome(this.setNome);
@@ -221,8 +224,37 @@ export class PaginaContatoComponent {
       if (this.ckbServicoPreenchido == false || this.ckbPreferenciaPreenchido == false){
           return;
       }
+
+      if(this.setNome == '' || this.setSobrenome == ''){
+        alert("O campo nome e sobrenome não devem estar vazio")
+        return;
+      }
+
+      if(!(this.valida.validaEmail(this.setEmail)) && this.setEmail != ''){
+        alert('Digite um e-mail valido');
+        return;
+      }
+
+      if(!(this.valida.validaTelefone(this.setTelefone)) || this.setTelefone == ''){
+        alert('Verifique se numero do telefone esta correto');
+      }
       
       this.setContato();
+
+      console.log(this.contato.getNome());
+      console.log(this.contato.getSobrenome());
+      console.log(this.contato.getTelefone());
+      console.log(this.contato.getWhatsApp());
+      console.log(this.contato.getEmail());
+      console.log(this.contato.getNomeEmpresa());
+      console.log(this.contato.getRua());
+      console.log(this.contato.getNumero());
+      console.log(this.contato.getBairro());
+      console.log(this.contato.getCidade());
+      console.log(this.contato.getUF());
+      console.log(this.contato.getServico());
+      console.log(this.contato.getPreferencia());
+      console.log(this.contato.getMensagem());
     }
 
 

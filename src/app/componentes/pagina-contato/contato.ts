@@ -1,128 +1,128 @@
 export class Contato{
-    private nome: String = '';
-    private sobrenome: String = '';
-    private telefone: String = '';
-    private whatsApp: String = '';
-    private e_mail: String = '';
-    private rua: String = '';
-    private numero: String = '';
-    private bairro: String = '';
-    private cidade: String = '';
-    private uf: String = '';
-    private servico: String = ''; // i = instalação, m = manutenção, o = outros
-    private preferencia: String = ''; // t = telefone, w = WhatsApp, e = e-mail
-    private nomeEmpresa: String = 'N/A';
-    private mensagem: String = '';
+    private nome: string = '';
+    private sobrenome: string = '';
+    private telefone: string = '';
+    private whatsApp: string = '';
+    private e_mail: string = '';
+    private rua: string = '';
+    private numero: string = '';
+    private bairro: string = '';
+    private cidade: string = '';
+    private uf: string = '';
+    private servico: string = ''; // i = instalação, m = manutenção, o = outros
+    private preferencia: string = ''; // t = telefone, w = WhatsApp, e = e-mail
+    private nomeEmpresa: string = 'N/A';
+    private mensagem: string = '';
 
-    public getNome(): String{
+    public getNome(): string{
         return this.nome;
     }
 
-    public setNome(nome: String){
+    public setNome(nome: string){
         this.nome = nome;
     }
 
-    public getSobrenome(): String{
+    public getSobrenome(): string{
         return this.sobrenome;
     }
 
-    public setSobrenome(sobrenome: String){
+    public setSobrenome(sobrenome: string){
         this.sobrenome = sobrenome;
     }
 
-    public getTelefone(): String{
+    public getTelefone(): string{
         return this.telefone;
     }
 
-    public setTelefone(telefone: String){
+    public setTelefone(telefone: string){
         this.telefone = telefone;
     }
 
-    public getWhatsApp(): String{
+    public getWhatsApp(): string{
         return this.whatsApp;
     }
 
-    public setWhatsApp(whatsApp: String){
+    public setWhatsApp(whatsApp: string){
         this.whatsApp = whatsApp;
     }
 
-    public getEmail(): String{
+    public getEmail(): string{
         return this.e_mail;
     }
 
-    public setEmail(e_mail: String){
+    public setEmail(e_mail: string){
         this.e_mail = e_mail;
     }
 
-    public getRua(): String{
+    public getRua(): string{
         return this.rua;
     }
 
-    public setRua(rua: String){
+    public setRua(rua: string){
         this.rua = rua;
     }
 
-    public getNumero(): String{
+    public getNumero(): string{
         return this.numero;
     }
 
-    public setNumero(numero: String){
+    public setNumero(numero: string){
         this.numero = numero;
     }
 
-    public getBairro(): String{
+    public getBairro(): string{
         return this.bairro;
     }
 
-    public setBairro(bairro: String){
+    public setBairro(bairro: string){
         this.bairro = bairro;
     }
 
-    public getCidade(): String{
+    public getCidade(): string{
         return this.cidade;
     }
 
-    public setCidade(cidade: String){
+    public setCidade(cidade: string){
         this.cidade = cidade;
     }
 
-    public getUF(): String{
+    public getUF(): string{
         return this.uf;
     }
 
-    public setUF(uf: String){
+    public setUF(uf: string){
         this.uf = uf;
     }
 
-    public getServico(): String{
+    public getServico(): string{
         return this.servico;
     }
 
-    public setServico(servico: String){
+    public setServico(servico: string){
         this.servico = servico;
     }
 
-    public getPreferencia(): String{
+    public getPreferencia(): string{
         return this.preferencia;
     }
 
-    public setPreferencia(preferencia: String){
+    public setPreferencia(preferencia: string){
         this.preferencia = preferencia;
     }
 
-    public getNomeEmpresa(): String{
+    public getNomeEmpresa(): string{
         return this.nomeEmpresa;
     }
 
-    public setNomeEmpresa(nomeEmpresa: String){
+    public setNomeEmpresa(nomeEmpresa: string){
         this.nomeEmpresa = nomeEmpresa;
     }
 
-    public getMensagem(): String{
+    public getMensagem(): string{
         return this.mensagem;
     }
 
-    public setMensagem(mensagem: String){
+    public setMensagem(mensagem: string){
         this.mensagem = mensagem;
     }
 }
