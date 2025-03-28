@@ -1,128 +1,128 @@
 export class Contato{
-    private nome: string = '';
-    private sobrenome: string = '';
-    private telefone: string = '';
-    private whatsApp: string = '';
-    private e_mail: string = '';
-    private rua: string = '';
-    private numero: string = '';
-    private bairro: string = '';
-    private cidade: string = '';
-    private uf: string = '';
-    private servico: string = ''; // i = instalação, m = manutenção, o = outros
-    private preferencia: string = ''; // t = telefone, w = WhatsApp, e = e-mail
-    private nomeEmpresa: string = 'N/A';
-    private mensagem: string = '';
+    private _nome: string = '';
+    private _sobrenome: string = '';
+    private _telefone: string = '';
+    private _whatsApp: string = '';
+    private _email: string = '';
+    private _rua: string = '';
+    private _numero: string = '';
+    private _bairro: string = '';
+    private _cidade: string = '';
+    private _uf: string = '';
+    private _servico: string = ''; // i = instalação, m = manutenção, o = outros
+    private _preferencia: string = ''; // t = telefone, w = WhatsApp, e = e-mail
+    private _nomeEmpresa: string = 'N/A';
+    private _mensagem: string = '';
 
-    public getNome(): string{
-        return this.nome;
+    public get nome(): string{
+        return this._nome;
     }
 
-    public setNome(nome: string){
-        this.nome = nome;
+    public set nome(nome: string){
+        this._nome = nome;
     }
 
-    public getSobrenome(): string{
-        return this.sobrenome;
+    public get sobrenome(): string{
+        return this._sobrenome;
     }
 
-    public setSobrenome(sobrenome: string){
-        this.sobrenome = sobrenome;
+    public set sobrenome(sobrenome: string){
+        this._sobrenome = sobrenome;
     }
 
-    public getTelefone(): string{
-        return this.telefone;
+    public get telefone(): string{
+        return this._telefone;
     }
 
-    public setTelefone(telefone: string){
-        this.telefone = telefone;
+    public set telefone(telefone: string){
+        this._telefone = telefone;
     }
 
-    public getWhatsApp(): string{
-        return this.whatsApp;
+    public get whatsApp(): string{
+        return this._whatsApp;
     }
 
-    public setWhatsApp(whatsApp: string){
-        this.whatsApp = whatsApp;
+    public set whatsApp(whatsApp: string){
+        this._whatsApp = whatsApp;
     }
 
-    public getEmail(): string{
-        return this.e_mail;
+    public get email(): string{
+        return this._email;
     }
 
-    public setEmail(e_mail: string){
-        this.e_mail = e_mail;
+    public set email(email: string){
+        this._email = email;
     }
 
-    public getRua(): string{
-        return this.rua;
+    public get rua(): string{
+        return this._rua;
     }
 
-    public setRua(rua: string){
-        this.rua = rua;
+    public set rua(rua: string){
+        this._rua = rua;
     }
 
-    public getNumero(): string{
-        return this.numero;
+    public get numero(): string{
+        return this._numero;
     }
 
-    public setNumero(numero: string){
-        this.numero = numero;
+    public set numero(numero: string){
+        this._numero = numero;
     }
 
-    public getBairro(): string{
-        return this.bairro;
+    public get bairro(): string{
+        return this._bairro;
     }
 
-    public setBairro(bairro: string){
-        this.bairro = bairro;
+    public set bairro(bairro: string){
+        this._bairro = bairro;
     }
 
-    public getCidade(): string{
-        return this.cidade;
+    public get cidade(): string{
+        return this._cidade;
     }
 
-    public setCidade(cidade: string){
-        this.cidade = cidade;
+    public set cidade(cidade: string){
+        this._cidade = cidade;
     }
 
-    public getUF(): string{
-        return this.uf;
+    public get uf(): string{
+        return this._uf;
     }
 
-    public setUF(uf: string){
-        this.uf = uf;
+    public set uf(uf: string){
+        this._uf = uf;
     }
 
-    public getServico(): string{
-        return this.servico;
+    public get servico(): string{
+        return this._servico;
     }
 
-    public setServico(servico: string){
-        this.servico = servico;
+    public set servico(servico: string){
+        this._servico = servico;
     }
 
-    public getPreferencia(): string{
-        return this.preferencia;
+    public get preferencia(): string{
+        return this._preferencia;
     }
 
-    public setPreferencia(preferencia: string){
-        this.preferencia = preferencia;
+    public set preferencia(preferencia: string){
+        this._preferencia = preferencia;
     }
 
-    public getNomeEmpresa(): string{
-        return this.nomeEmpresa;
+    public get nomeEmpresa(): string{
+        return this._nomeEmpresa;
     }
 
-    public setNomeEmpresa(nomeEmpresa: string){
-        this.nomeEmpresa = nomeEmpresa;
+    public set nomeEmpresa(nomeEmpresa: string){
+        this._nomeEmpresa = nomeEmpresa;
     }
 
-    public getMensagem(): string{
-        return this.mensagem;
+    public get mensagem(): string{
+        return this._mensagem;
     }
 
-    public setMensagem(mensagem: string){
-        this.mensagem = mensagem;
+    public set mensagem(mensagem: string){
+        this._mensagem = mensagem;
     }
 }

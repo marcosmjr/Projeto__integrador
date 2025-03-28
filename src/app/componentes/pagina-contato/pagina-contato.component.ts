@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { Contato } from './contato';
 import { Validacao } from './validação';
-import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { NgxMaskDirective, /*NgxMaskPipe*/ } from 'ngx-mask';
 
 
 interface UF {
@@ -31,7 +31,7 @@ interface UF {
     MatButtonModule,
     MatCheckbox,
     NgxMaskDirective, 
-    NgxMaskPipe
+    //NgxMaskPipe
   ],
   templateUrl: './pagina-contato.component.html',
   styleUrl: './pagina-contato.component.css',
@@ -57,34 +57,34 @@ export class PaginaContatoComponent {
   private ckbServicoPreenchido: boolean =false;
   private ckbPreferenciaPreenchido: boolean =false;
 
-  setNome: string = '';
-  setSobrenome: string = '';
-  setTelefone: string = '';
-  setWhatsApp: string = '';
-  setEmail: string = '';
-  setRua: string = '';
-  setNumero: string = '';
-  setBairro: string = '';
-  setCidade: string = '';
-  setUF: string = '';
+  nome: string = '';
+  sobrenome: string = '';
+  telefone_: string = '';
+  whatsApp_: string = '';
+  email: string = '';
+  rua: string = '';
+  numero: string = '';
+  bairro: string = '';
+  cidade: string = '';
+  uf: string = '';
 
-  setNomeEmpresa: string = 'N/A';
-  setMensagem: string = '';
+  nomeEmpresa: string = 'N/A';
+  mensagem: string = '';
 
   setContato(){
-    this.contato.setNome(this.setNome);
-    this.contato.setSobrenome(this.setSobrenome);
-    this.contato.setTelefone(this.setTelefone);
-    this.contato.setWhatsApp(this.setWhatsApp);
-    this.contato.setEmail(this.setEmail);
-    this.contato.setRua(this.setRua);
-    this.contato.setNumero(this.setNumero);
-    this.contato.setBairro(this.setBairro);
-    this.contato.setCidade(this.setCidade);
-    this.contato.setUF(this.setUF);
+    this.contato.nome = this.nome;
+    this.contato.sobrenome = this.sobrenome;
+    this.contato.telefone = this.telefone_;
+    this.contato.whatsApp = this.whatsApp_;
+    this.contato.email = this.email;
+    this.contato.rua = this.rua;
+    this.contato.numero = this.numero;
+    this.contato.bairro = this.bairro;
+    this.contato.cidade = this.cidade;
+    this.contato.uf = this.uf;
     
-    this.contato.setNomeEmpresa(this.setNomeEmpresa);
-    this.contato.setMensagem(this.setMensagem);
+    this.contato.nomeEmpresa = this.nomeEmpresa;
+    this.contato.mensagem =this.mensagem;
   }
 
   estados: UF[] = [
@@ -145,31 +145,31 @@ export class PaginaContatoComponent {
 
   ckbUsarMesmoNumero(evento: boolean) {
     if(evento == true){
-      this.contato.setWhatsApp(this.setTelefone);
-      this.setWhatsApp = this.setTelefone
+      this.contato.whatsApp = this.telefone_;
+      this.whatsApp_ = this.telefone_
     }else {
-      this.contato.setWhatsApp('');
-      this.setWhatsApp = '';
+      this.contato.whatsApp = '';
+      this.whatsApp_ = '';
     }
   }
 
   ckbServico(): boolean{
     if(this.instalacao == true && this.manutencao == false && this.outros == false){
-      this.contato.setServico('i');
+      this.contato.servico = 'i';
     }else if (this.instalacao == false && this.manutencao == true && this.outros == false) {
-      this.contato.setServico('m');
+      this.contato.servico = 'm';
     } else if (this.instalacao == false && this.manutencao == false && this.outros == true) {
-      this.contato.setServico('o');
+      this.contato.servico = 'o';
     } else if (this.instalacao == true && this.manutencao == true && this.outros == false) {
-      this.contato.setServico('im');
+      this.contato.servico = 'im';
     } else if (this.instalacao == true && this.manutencao == false && this.outros == true) {
-      this.contato.setServico('io');
+      this.contato.servico = 'io';
     } else if (this.instalacao == false && this.manutencao == true && this.outros == true) {
-      this.contato.setServico('mo');
+      this.contato.servico = 'mo';
     } else if (this.instalacao == true && this.manutencao == true && this.outros == true) {
-      this.contato.setServico('imo');
+      this.contato.servico = 'imo';
     } else if (this.instalacao == false && this.manutencao == false && this.outros == false) {
-      this.contato.setServico('');
+      this.contato.servico = '';
       alert("Escolha um assunto no campo Serviços");
       return false;
     }
@@ -178,21 +178,21 @@ export class PaginaContatoComponent {
 
   cbkPreferencia(): boolean{
     if(this.telefone == true && this.whatsApp == false && this.e_mail == false){
-      this.contato.setPreferencia('t');
+      this.contato.preferencia = 't';
     }else if (this.telefone == false && this.whatsApp == true && this.e_mail == false) {
-      this.contato.setPreferencia('w');
+      this.contato.preferencia = 'w';
     } else if (this.telefone == false && this.whatsApp == false && this.e_mail == true) {
-      this.contato.setPreferencia('e');
+      this.contato.preferencia = 'e';
     } else if (this.telefone == true && this.whatsApp == true && this.e_mail == false) {
-      this.contato.setPreferencia('tw');
+      this.contato.preferencia = 'tw';
     } else if (this.telefone == true && this.whatsApp == false && this.e_mail == true) {
-      this.contato.setPreferencia('te');
+      this.contato.preferencia = 'te';
     } else if (this.telefone == false && this.whatsApp == true && this.e_mail == true) {
-      this.contato.setPreferencia('we');
+      this.contato.preferencia = 'we';
     } else if (this.telefone == true && this.whatsApp == true && this.e_mail == true) {
-      this.contato.setPreferencia('twe');
+      this.contato.preferencia = 'twe';
     } else if (this.telefone == false && this.whatsApp == false && this.e_mail == false) {
-      this.contato.setPreferencia('');
+      this.contato.preferencia = '';
       alert("É necessário escolher um meio de comunicação preferido");
       return false;
     }
@@ -207,11 +207,11 @@ export class PaginaContatoComponent {
   ckbPessoaJuridica(evento: boolean){
     if(evento == true){
       this.nome_empresa_estado = false;
-      this.setNomeEmpresa = '';
+      this.nomeEmpresa = '';
 
     } else {
       this.nome_empresa_estado = true;
-      this.setNomeEmpresa = 'N/A';
+      this.nomeEmpresa = 'N/A';
 
     }
   }
@@ -228,40 +228,40 @@ export class PaginaContatoComponent {
           return;
       }
 
-      if(this.setNome == '' || this.setSobrenome == ''){
+      if(this.nome == '' || this.sobrenome == ''){
         alert("O campo nome e sobrenome não devem estar vazio")
         return;
       }
 
-      if(!(this.valida.validaEmail(this.setEmail)) && this.setEmail != ''){
+      if(!(this.valida.validaEmail(this.email)) && this.email != ''){
         alert('Digite um e-mail valido');
         return;
       }
 
-      if(!(this.valida.validaTelefone(this.setTelefone)) || this.setTelefone == ''){
-        alert('Verifique se numero do telefone esta correto');
+      if(!(this.valida.validaTelefone(this.telefone_)) || this.telefone_ == ''){
+        alert('Verifique se número do telefone está correto');
       }
 
-      if(!(this.valida.validaTelefone(this.setWhatsApp)) && this.setWhatsApp != ''){
-        alert('Verifique se numero do whatsApp esta correto');
+      if(!(this.valida.validaTelefone(this.whatsApp_)) && this.whatsApp_ != ''){
+        alert('Verifique se número do WhatsApp está correto');
       }
       
       this.setContato();
 
-      console.log(this.contato.getNome());
-      console.log(this.contato.getSobrenome());
-      console.log(this.contato.getTelefone());
-      console.log(this.contato.getWhatsApp());
-      console.log(this.contato.getEmail());
-      console.log(this.contato.getNomeEmpresa());
-      console.log(this.contato.getRua());
-      console.log(this.contato.getNumero());
-      console.log(this.contato.getBairro());
-      console.log(this.contato.getCidade());
-      console.log(this.contato.getUF());
-      console.log(this.contato.getServico());
-      console.log(this.contato.getPreferencia());
-      console.log(this.contato.getMensagem());
+     /* console.log(this.contato.nome);
+      console.log(this.contato.sobrenome);
+      console.log(this.contato.telefone);
+      console.log(this.contato.whatsApp);
+      console.log(this.contato.email);
+      console.log(this.contato.nomeEmpresa);
+      console.log(this.contato.rua);
+      console.log(this.contato.numero);
+      console.log(this.contato.bairro);
+      console.log(this.contato.cidade);
+      console.log(this.contato.uf);
+      console.log(this.contato.servico);
+      console.log(this.contato.preferencia);
+      console.log(this.contato.mensagem);*/
     }
 
 
