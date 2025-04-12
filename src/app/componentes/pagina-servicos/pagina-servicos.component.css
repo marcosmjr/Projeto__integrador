@@ -1,13 +1,17 @@
+.corpo{
+  margin-top: 40px;
+  margin-left: 40px;
+}
 .card_posicao{
   display: flex;
-  margin-top: 40px;
 }
 
-
-
 .card_servico{
-  padding-left: 20px;
-  padding-right: 40px;
-  padding-bottom: 40px;
-  width: 360px;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  text-align: center;
+  justify-content: center;
+  width: 500px;
+  height: 250px;
 }
