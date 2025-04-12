@@ -3,13 +3,13 @@
     <app-banner-carrousel></app-banner-carrousel>
   </div>
   <div class="menu">
-    <button class="btn-menu" mat-button [matMenuTriggerFor]="menu">Serviços</button>
-    <mat-menu #menu="matMenu">
+    <button class="btn-menu" mat-button (click)="pagina_servicos()">Serviços</button>
+    <!-- <mat-menu #menu="matMenu">
       <button class="btn-menu-item" mat-menu-item (click)="pagina_servicos()">Inicio</button>
       <button class="btn-menu-item" mat-menu-item>Instalação Residencia</button>
       <button class="btn-menu-item" mat-menu-item>Intalação Comecial</button>
       <button mat-menu-item>Limpeza</button>
-    </mat-menu>
+    </mat-menu> -->
 
     <button class="btn-menu" mat-button (click)="pagina_produtos()">Produtos</button>
     <button class="btn-menu" mat-button (click)="pagina_quem_somos()">Quem Somos Nós</button>
@@ -23,17 +23,17 @@
   @if (selecaoPagina == 0) {
       <app-pagina-servicos></app-pagina-servicos>
   } @else if (selecaoPagina == 1) {
-      <app-pagina-produtos></app-pagina-produtos>  
+      <app-pagina-produtos></app-pagina-produtos>
   } @else if (selecaoPagina == 2) {
-      <app-pagina-quem-somos-nos></app-pagina-quem-somos-nos>  
+      <app-pagina-quem-somos-nos></app-pagina-quem-somos-nos>
   } @else if (selecaoPagina == 3) {
-      <app-pagina-nossos-valores></app-pagina-nossos-valores>  
+      <app-pagina-nossos-valores></app-pagina-nossos-valores>
   } @else if (selecaoPagina == 4) {
-      <app-pagina-onde-estamos></app-pagina-onde-estamos>  
+      <app-pagina-onde-estamos></app-pagina-onde-estamos>
   } @else if (selecaoPagina == 5) {
-      <app-pagina-contato></app-pagina-contato>  
+      <app-pagina-contato></app-pagina-contato>
   }
-    
+
 </div>
 
   <footer>
@@ -53,7 +53,7 @@
       <p><a href="#" (click)="pagina_onde_estamos()">Onde Estamos</a></p>
       <p><a href="#" (click)="pagina_contato()">Contatos</a></p>
       <p><a href="#">Blog</a></p>
-    
+
   </div>
     <div class="endereco">
       <p>
@@ -67,7 +67,7 @@
     </div>
   </div>
   </footer>
-  
+
 </div>
 
 

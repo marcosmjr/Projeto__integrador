@@ -1,0 +1,13 @@
+.card_posicao{
+  display: flex;
+  margin-top: 40px;
+}
+
+
+
+.card_servico{
+  padding-left: 20px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  width: 360px;
+}
