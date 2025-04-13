@@ -1,4 +1,6 @@
-# Depois de baixar o projeto, rodar dentro da pasta do projeto via terminal os comandos marcados com 1, 2 e 3 logo a baixo.
+# O que fazer depois de baixar o projeto
+
+ Depois de baixar o projeto, rodar dentro da pasta do projeto via terminal os comandos marcados com 1, 2, 3 e 4 logo a baixo.
 
 
 #  1 Download e instalação do node.js
@@ -9,7 +11,6 @@ https://nodejs.org/en/download/
 ```bash
 npm i @angular/cli
 ```
-
 # 3 Usando componentes:
 Material
 ```bash
@@ -27,6 +28,13 @@ NGX MASK - https://www.npmjs.com/package/ngx-mask
 ```bash
 npm i ngx-mask
 ```
+# 4 Funções de critografia e decriptografia
+```bash
+npm install crypto-js
+npm i --save-dev @types/crypto-js
+```
+Referencia: https://dev.to/anilsingh/angular-17-encrypting-decrypting-data-with-cryptojs-angular-17-tutorial-react-30mh
+
 # FabioArCondicionado
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.

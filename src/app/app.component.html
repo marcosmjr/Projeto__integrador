@@ -10,6 +10,7 @@
     <button class="btn-menu" mat-button (click)="pagina_onde_estamos()">Onde Estamos</button>
     <button class="btn-menu" mat-button (click)="pagina_contato()">Contato</button>
     <button class="btn-menu" mat-button>Blog</button>
+    <button class="btn-menu" mat-button (click)="admin()">Administrador</button>
   </div>
 <div>
 
@@ -25,6 +26,8 @@
       <app-pagina-onde-estamos></app-pagina-onde-estamos>
   } @else if (selecaoPagina == 5) {
       <app-pagina-contato></app-pagina-contato>
+  } @else if (selecaoPagina == 6) {
+      <app-admin></app-admin>
   }
 
 </div>

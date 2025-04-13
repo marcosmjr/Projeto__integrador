@@ -11,6 +11,7 @@ import { PaginaProdutosComponent } from './componentes/pagina-produtos/pagina-pr
 import { PaginaQuemSomosNosComponent } from './componentes/pagina-quem-somos-nos/pagina-quem-somos-nos.component';
 import { PaginaNossosValoresComponent } from './componentes/pagina-nossos-valores/pagina-nossos-valores.component';
 import { PaginaOndeEstamosComponent } from './componentes/pagina-onde-estamos/pagina-onde-estamos.component';
+import { AdminComponent } from './componentes/admin/admin.component';
 
 @Component({
   selector: 'app-root',
@@ -24,13 +25,14 @@ import { PaginaOndeEstamosComponent } from './componentes/pagina-onde-estamos/pa
       PaginaProdutosComponent,
       PaginaQuemSomosNosComponent,
       PaginaNossosValoresComponent,
-      PaginaOndeEstamosComponent
+      PaginaOndeEstamosComponent,
+      AdminComponent
     ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+
   selecaoPagina: number = 0;
 
   pagina_servicos(){
@@ -57,5 +59,7 @@ export class AppComponent {
     this.selecaoPagina = 5;
   };
 
-
+  admin(){
+    this.selecaoPagina = 6;
+  };
 }
