@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Contato } from './contato';
 import { Validacao } from './validação';
 import { NgxMaskDirective, /*NgxMaskPipe*/ } from 'ngx-mask';
+import { TermosPrivacidadeComponent } from './privacidade/termos-privacidade/termos-privacidade.component';
 
 
 interface UF {
@@ -22,15 +23,15 @@ interface UF {
 @Component({
   selector: 'app-pagina-contato',
   imports: [
-    MatFormFieldModule, 
-    MatInputModule, 
-    MatSelectModule, 
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     FormsModule,
     MatCheckboxModule,
     TextareaModule,
     MatButtonModule,
     MatCheckbox,
-    NgxMaskDirective, 
+    NgxMaskDirective,
     //NgxMaskPipe
   ],
   templateUrl: './pagina-contato.component.html',
@@ -41,6 +42,7 @@ export class PaginaContatoComponent {
 
   contato: Contato = new Contato;
   valida: Validacao = new Validacao;
+  temosPrivacidade: TermosPrivacidadeComponent = new TermosPrivacidadeComponent;
 
   nome_empresa_estado: boolean = true;
 
@@ -82,7 +84,7 @@ export class PaginaContatoComponent {
     this.contato.bairro = this.bairro;
     this.contato.cidade = this.cidade;
     this.contato.uf = this.uf;
-    
+
     this.contato.nomeEmpresa = this.nomeEmpresa;
     this.contato.mensagem =this.mensagem;
   }
@@ -201,7 +203,7 @@ export class PaginaContatoComponent {
 
   ckbTermoPrivacidade(evento: boolean){
     this.termoPrivacidade = evento;
-    
+
   }
 
   ckbPessoaJuridica(evento: boolean){
@@ -245,7 +247,7 @@ export class PaginaContatoComponent {
       if(!(this.valida.validaTelefone(this.whatsApp_)) && this.whatsApp_ != ''){
         alert('Verifique se número do WhatsApp está correto');
       }
-      
+
       this.setContato();
 
      /* console.log(this.contato.nome);
@@ -264,5 +266,8 @@ export class PaginaContatoComponent {
       console.log(this.contato.mensagem);*/
     }
 
+    termosPrivacidade(){
+      this.temosPrivacidade.termosPrivacidade();
+    }
 
 }

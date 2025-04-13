@@ -64,6 +64,11 @@ legend {
     
 }
 
+.leia_termos p{
+  text-decoration: underline;
+  color: blue;
+}
+
 .txt-area {
     min-width: 1040px;
 }
