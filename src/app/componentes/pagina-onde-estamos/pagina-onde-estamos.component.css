@@ -2,9 +2,12 @@
   margin-top: 40px;
   margin-left: 190px;
   margin-bottom: 40px;
+ 
 }
 
 .card{
   width: 700px;
   height: 350px;
+  border-radius: 15px;
+  
 }

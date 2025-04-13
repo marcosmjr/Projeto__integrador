@@ -1,0 +1,43 @@
+.corpo{
+  position: relative;
+  height: 900px;
+  margin-left: 40px;
+}
+
+.nossosValores {
+  position: relative;
+
+  margin-left: 60px;
+  width: 500px;
+  height: 400px;
+  font-size: 20px;
+  top: 30%;
+
+  color: #353535;
+  border: 2px, solid, rgb(40, 50, 240);
+  border-radius: 20px;
+}
+
+.textoNossosValores {
+
+  position: absolute;
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  top: 20%;
+
+
+}
+
+.fundo {
+
+  position: absolute;
+  top: 5%;
+  left: 40%;
+}
+
+.fundo img{
+  width: 500px;
+  height: 300px;
+
+}
