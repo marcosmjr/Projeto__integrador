@@ -1,19 +1,21 @@
 .corpo{
   position: relative;
   height: 900px;
-  margin-left: 40px;
+  background-image: url(/img/pagina_nossos_valores/nossosValores_Gemini_Generated_Image.jpeg);
+  background-size: cover;
 }
 
 .nossosValores {
   position: relative;
 
-  margin-left: 60px;
+
   width: 500px;
   height: 400px;
   font-size: 20px;
   top: 30%;
+  left: 10%;
 
-  color: #353535;
+  color: #000000;
   border: 2px, solid, rgb(40, 50, 240);
   border-radius: 20px;
 }
@@ -33,11 +35,11 @@
 
   position: absolute;
   top: 5%;
-  left: 40%;
+  left: 45%;
+  z-index: 1;
 }
 
 .fundo img{
   width: 500px;
   height: 300px;
-
 }

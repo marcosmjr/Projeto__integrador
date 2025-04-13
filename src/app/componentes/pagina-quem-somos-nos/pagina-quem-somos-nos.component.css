@@ -1,18 +1,22 @@
 .corpo{
   position: relative;
   height: 900px;
-  margin-left: 40px;
+  background-image: url(/img/pagina_quem_somos/quemSomoNos_Gemini_Generated_Image.jpeg);
+  background-size: cover;
+
 }
 
 .quemSomos {
   position: relative;
-  margin-top: 40px;
   margin-left: 60px;
   width: 500px;
   height: 400px;
   font-size: 20px;
+  top: 5%;
+  left: 5%;
 
-  color: #353535;
+  color: #000000;
+  background-color: aquamarine;
   border: 2px, solid, rgb(40, 50, 240);
   border-radius: 20px;
 }
@@ -31,12 +35,12 @@
 .fundo {
 
   position: absolute;
-  top: 25%;
-  left: 40%;
+  top: 30%;
+  left: 45%;
 }
 
 .fundo img{
   width: 400px;
   height: 600px;
-  
+
 }
