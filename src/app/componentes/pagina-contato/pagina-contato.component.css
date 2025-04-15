@@ -6,7 +6,7 @@
 }
 
 .form1 {
-    display: flex;  
+    display: flex;
 }
 
 .form2_div2{
@@ -51,7 +51,7 @@ legend {
 }
 
 .btn-enviar {
-   
+
     margin-inline-start: 350px;
     margin-top: 5px;
     width: 295px;
@@ -61,12 +61,14 @@ legend {
 .leia_termos {
     margin-left: 10px;
     margin-top: 5px;
-    
+
 }
 
 .leia_termos p{
   text-decoration: underline;
   color: blue;
+  cursor: pointer;
+  margin-top: 3px;
 }
 
 .txt-area {

@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+
+.btnVoltar {
+  display: flex;
+  justify-content: right;
+  margin: 10px 0px 20px 0px;
+}
+
+.btnVoltar button {
+  width: 200px;
+}

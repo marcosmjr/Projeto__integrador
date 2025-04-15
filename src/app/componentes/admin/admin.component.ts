@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
@@ -9,6 +9,9 @@ import * as CryptoJS from 'crypto-js';
 
 import { OcorrenciasComponent } from './ocorrencias/ocorrencias.component';
 
+import { AdminDados } from './adminDados';
+import { Dados } from '../../servico/dados/dados';
+
 @Component({
   selector: 'app-admin',
   imports: [
@@ -17,7 +20,7 @@ import { OcorrenciasComponent } from './ocorrencias/ocorrencias.component';
     MatButtonModule,
     MatIconModule,
     FormsModule,
-    OcorrenciasComponent
+    OcorrenciasComponent,
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
@@ -28,6 +31,9 @@ export class AdminComponent {
   criptografado: string = '';
   decriptografado: string = '';
   permissao: boolean = false;
+
+  //adminDados = inject(AdminDados);
+ adminDados: AdminDados = new AdminDados;
 
   key = "e5bbb3fd1536b390c011200732ffc3d765accda268b9203523677859674eb7a3f2cd1fd6949b7f640160b3ecd29e072666afb31386ae217ab2bbf2c75a837ac6";
 
@@ -44,7 +50,7 @@ recebePermissao(event: boolean){
   this.permissao = event;
 }
 
-  btnEnviar(){
+  btnEntrar(){
     this.criptografado = this.encrypt(this.senha);
 
     this.decriptografado =  this.decrypt(this.criptografado);
@@ -56,6 +62,17 @@ recebePermissao(event: boolean){
       console.log("Senha decriptografada = " + this.decriptografado);
 
       this.senha='';
+
+      console.log("----------------------")
+     // console.log(this.adminDados.getAdminDados() /*.interfaceDados.senha*/)
+
+      console.log(this.adminDados.getAdminDados2())
+
+      console.log("Usuário = " + AdminDados.usuario)
+      console.log("Senha = " + AdminDados.senha)
+
+
+
 
   }
 
