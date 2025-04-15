@@ -9,8 +9,9 @@ import * as CryptoJS from 'crypto-js';
 
 import { OcorrenciasComponent } from './ocorrencias/ocorrencias.component';
 
-import { AdminDados } from './adminDados';
+import { DadosIntefaceAdmin } from '../../servico/dados/dadosIntefaceAdmin';
 import { Dados } from '../../servico/dados/dados';
+
 
 @Component({
   selector: 'app-admin',
@@ -27,20 +28,33 @@ import { Dados } from '../../servico/dados/dados';
 })
 export class AdminComponent {
 
-  senha: string = '';
-  criptografado: string = '';
-  decriptografado: string = '';
-  permissao: boolean = false;
 
-  //adminDados = inject(AdminDados);
- adminDados: AdminDados = new AdminDados;
+  dadosLoginApi: DadosIntefaceAdmin[] = [];
+  senhaBancoDados: string = '';
+  constructor(private dadosAdminApi: Dados){ }
+
+ngOnInit(): void {
+  this.dadosAdminApi.carregaDadosAdmin().subscribe(
+    (dados: any) => {
+      this.dadosLoginApi = dados;
+
+      console.log(this.dadosLoginApi[0].senha)
+      this.senhaBancoDados = this.dadosLoginApi[0].senha;
+
+    }
+  );
+
+}
+
+  senha: string = '';
+  permissao: boolean = false;
 
   key = "e5bbb3fd1536b390c011200732ffc3d765accda268b9203523677859674eb7a3f2cd1fd6949b7f640160b3ecd29e072666afb31386ae217ab2bbf2c75a837ac6";
 
 
-   public encrypt(password: string): string {
-    return CryptoJS.AES.encrypt(password, this.key).toString();
-}
+//    public encrypt(password: string): string {
+//     return CryptoJS.AES.encrypt(password, this.key).toString();
+// }
 
   public decrypt(passwordToDecrypt: string) {
    return CryptoJS.AES.decrypt(passwordToDecrypt, this.key).toString(CryptoJS.enc.Utf8);
@@ -50,29 +64,14 @@ recebePermissao(event: boolean){
   this.permissao = event;
 }
 
+
+
   btnEntrar(){
-    this.criptografado = this.encrypt(this.senha);
 
-    this.decriptografado =  this.decrypt(this.criptografado);
-
-      this.permissao = true;
-
-      console.log("Estado da permisão = "+this.permissao);
-      console.log("Senha criptografada = " + this.criptografado);
-      console.log("Senha decriptografada = " + this.decriptografado);
-
-      this.senha='';
-
-      console.log("----------------------")
-     // console.log(this.adminDados.getAdminDados() /*.interfaceDados.senha*/)
-
-      console.log(this.adminDados.getAdminDados2())
-
-      console.log("Usuário = " + AdminDados.usuario)
-      console.log("Senha = " + AdminDados.senha)
-
-
-
+    if(this.decrypt(this.senhaBancoDados) === this.senha){
+    this.permissao = true;
+  }
+    this.senha='';
 
   }
 

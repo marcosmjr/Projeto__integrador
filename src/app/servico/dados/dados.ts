@@ -1,8 +1,7 @@
-import { inject, Injectable } from '@angular/core';
+import { Component, inject, Injectable, resource } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { DadosIntefaceAdmin } from './dadosIntefaceAdmin';
-import { AdminDados } from '../../componentes/admin/adminDados';
 
 
 /*@Component({
@@ -13,17 +12,17 @@ import { AdminDados } from '../../componentes/admin/adminDados';
 })
 export class DadosComponent{
 
-  constructor(private httpCliente: HttpClient) {}
+  private urlAdmin = "http://localhost:8000/api/admin";
 
-  adminDados: AdminDados = new AdminDados
-
-  getDados () {
-    return this.httpCliente.get("http://localhost:8000/api/admin");
-  }
+  dadosAdim = resource({
+    loader: () => {
+      return fetch(this.urlAdmin).then((res) => res.json() as Promise<DadosIntefaceAdmin[]>)
+    }
+  })
 
 }*/
 
-@Injectable({
+/*@Injectable({
   providedIn: 'root'
 })
 
@@ -40,5 +39,30 @@ export class Dados {
 
   }
 
+
+}*/
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class Dados {
+  private urlAdmin = "http://localhost:8000/api/admin";
+  dadosAdmin: DadosIntefaceAdmin[] = [];
+
+  constructor(private http: HttpClient){}
+
+  carregaDadosAdmin(): Observable<DadosIntefaceAdmin[]>{
+    return this.http.get<DadosIntefaceAdmin[]>(this.urlAdmin).pipe(
+      map(dados => {
+        this.dadosAdmin = dados;
+        return this.dadosAdmin;
+      })
+    );
+  }
+
+  getDadosAdmin(): DadosIntefaceAdmin[]{
+    return this.dadosAdmin;
+  }
 
 }
