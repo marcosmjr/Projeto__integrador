@@ -34,15 +34,15 @@ export class AdminComponent {
   constructor(private dadosAdminApi: Dados){ }
 
 ngOnInit(): void {
+  ////////////////Dados de Login//////////////
   this.dadosAdminApi.carregaDadosAdmin().subscribe(
     (dados: any) => {
       this.dadosLoginApi = dados;
-
-      console.log(this.dadosLoginApi[0].senha)
       this.senhaBancoDados = this.dadosLoginApi[0].senha;
 
     }
   );
+  ///////////////////////////////////////////////
 
 }
 
@@ -63,6 +63,17 @@ ngOnInit(): void {
 recebePermissao(event: boolean){
   this.permissao = event;
 }
+
+
+// Keyboard INTERACTION
+x = document.addEventListener('keyup', (event) => {
+  const keyName = event.key;
+
+  // Observe: key - 'Enter', code - 'Enter', keyCode - 13
+  if (keyName === 'Enter') {
+   this.btnEntrar();
+  }
+}, false);
 
 
 
