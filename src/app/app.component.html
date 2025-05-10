@@ -6,7 +6,7 @@
     <button class="btn-menu" mat-button (click)="pagina_servicos()">Serviços</button>
     <button class="btn-menu" mat-button (click)="pagina_produtos()">Produtos</button>
     <button class="btn-menu" mat-button (click)="pagina_quem_somos()">Quem Somos</button>
-    <button class="btn-menu" mat-button (click)="pagina_nossos_valores()">Nossos Valores</button>
+    <!--<button class="btn-menu" mat-button (click)="pagina_nossos_valores()">Nossos Valores</button>-->
     <button class="btn-menu" mat-button (click)="pagina_onde_estamos()">Onde Estamos</button>
     <button class="btn-menu" mat-button (click)="pagina_contato()">Contato</button>
     <a href="https://www.blogger.com/about/?hl=pt-br" target="_blank">
@@ -22,9 +22,11 @@
       <app-pagina-produtos></app-pagina-produtos>
   } @else if (selecaoPagina == 2) {
       <app-pagina-quem-somos-nos></app-pagina-quem-somos-nos>
-  } @else if (selecaoPagina == 3) {
+  }
+  <!--} @else if (selecaoPagina == 3) {
       <app-pagina-nossos-valores></app-pagina-nossos-valores>
-  } @else if (selecaoPagina == 4) {
+  } -->
+      @else if (selecaoPagina == 4) {
       <app-pagina-onde-estamos></app-pagina-onde-estamos>
   } @else if (selecaoPagina == 5) {
       <app-pagina-contato></app-pagina-contato>
@@ -41,7 +43,7 @@
           <p><a href="#" (click)="pagina_servicos()">Serviços</a></p>
           <p><a href="#"(click)="pagina_produtos()">Produtos</a></p>
           <p><a href="#"(click)="pagina_quem_somos()">Quem Somos</a></p>
-          <p><a href="#" (click)="pagina_nossos_valores()">Nossos Valores</a></p>
+         <!--<p><a href="#" (click)="pagina_nossos_valores()">Nossos Valores</a></p>-->
       </div>
       <div>
         <p id="cnpj">CNPJ: 52.535.091.0001-61</p>

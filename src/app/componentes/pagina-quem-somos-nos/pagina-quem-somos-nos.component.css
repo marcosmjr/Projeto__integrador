@@ -9,16 +9,26 @@
 .quemSomos {
   position: relative;
   margin-left: 60px;
-  width: 500px;
-  height: 400px;
+  margin-bottom: 20px;
+  width: 850px;
+  height: 200px;
   font-size: 20px;
   top: 5%;
   left: 5%;
 
   color: #000000;
-  background-color: aquamarine;
+  background-color: rgb(127, 236, 255);
   border: 2px, solid, rgb(40, 50, 240);
   border-radius: 20px;
+}
+
+.valores{
+   height: 300px;
+}
+
+.quemSomos span{
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .textoQuemSomos {
@@ -35,12 +45,12 @@
 .fundo {
 
   position: absolute;
-  top: 30%;
-  left: 45%;
+  top: 80%;
+  left: 90%;
 }
 
 .fundo img{
-  width: 400px;
-  height: 600px;
+  width: 200px;
+  height: 400px;
 
 }
