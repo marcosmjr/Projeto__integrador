@@ -1,20 +1,6 @@
 .corpo {
   margin: 20px 60px 0px 60px;
-
-}
-
-.bloco{
-  display: flex;
-  margin: 20px 0px 20px 0px;
-  justify-content: space-between;
-}
-
-
-.cartao {
-  width: 500px;
-  height: 200px;
-  justify-content: center;
-  text-align: center;
+  height: 400px;
 
 }
 
