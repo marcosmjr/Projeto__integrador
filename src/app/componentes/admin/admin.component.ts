@@ -49,13 +49,11 @@ ngOnInit(): void {
   senha: string = '';
   permissao: boolean = false;
 
+
+  // Chave usada tanto para criptografar quanto para decritografar a senha
   key = "e5bbb3fd1536b390c011200732ffc3d765accda268b9203523677859674eb7a3f2cd1fd6949b7f640160b3ecd29e072666afb31386ae217ab2bbf2c75a837ac6";
 
-
-//    public encrypt(password: string): string {
-//     return CryptoJS.AES.encrypt(password, this.key).toString();
-// }
-
+  //Função para decritografar a senha
   public decrypt(passwordToDecrypt: string) {
    return CryptoJS.AES.decrypt(passwordToDecrypt, this.key).toString(CryptoJS.enc.Utf8);
 }
