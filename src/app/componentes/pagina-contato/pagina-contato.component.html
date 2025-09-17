@@ -1,138 +1,154 @@
-
 <!--Componentes Material https://material.angular.io/-->
-<div class="moldura">
+<form #formularioContato="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+  {{ formularioContato.value | json}}
+  <hr>
+  {{contato | json}}
+  <hr>
+  {{formularioContato.form.invalid}}
+
+
+  <div class="moldura">
     <div class="form1">
-        <div>
-            <mat-form-field class="mat-form1">
-                <mat-label>Nome:</mat-label>
-                <input matInput [(ngModel)]="nome" required>
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field class="mat-form1, mat-form2">
-                <mat-label>Sobrenome:</mat-label>
-                <input matInput [(ngModel)]="sobrenome" required>
-            </mat-form-field>
-        </div>
+      <div>
+        <mat-form-field class="mat-form1">
+          <mat-label>Nome:</mat-label>
+          <input matInput [(ngModel)]="contato.nome" name="nome" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="mat-form1, mat-form2">
+          <mat-label>Sobrenome:</mat-label>
+          <input matInput [(ngModel)]="contato.sobrenome" name="sobrenome" required>
+        </mat-form-field>
+      </div>
     </div>
 
     <div class="form1">
-        <div>
-            <mat-form-field class="mat-form1">
-                <mat-label>Telefone:</mat-label>
+      <div>
+        <mat-form-field class="mat-form1">
+          <mat-label>Telefone:</mat-label>
 
-                <input matInput type="tel" mask="(00) 0000-0000 || (00) 0 0000-0000" [(ngModel)]="telefone_" required>
-            </mat-form-field>
-        </div>
-        <div class="form2_div2">
-            <legend>Seviços:</legend>
-                <section>
-                    <mat-checkbox (change)="ckbInstalacao($event.checked)">Instalação</mat-checkbox>
-                    <mat-checkbox (change)="ckbManutencao($event.checked)">Manutenção</mat-checkbox>
-                    <mat-checkbox (change)="ckbOutros($event.checked)">Outros</mat-checkbox>
-                </section>
-        </div>
+          <input matInput mask="(00) 0000-0000 || (00) 0 0000-0000" [(ngModel)]="contato.telefone"
+            name="telefone" required>
+        </mat-form-field>
+      </div>
+      <div class="form2_div2">
+        <legend>Seviços:</legend>
+        <section>
+          <mat-checkbox [(ngModel)]="contato.instalacao" name="instalacao">Instalação</mat-checkbox>
+          <mat-checkbox [(ngModel)]="contato.manutencao" name="manutecao">Manutenção</mat-checkbox>
+          <mat-checkbox [(ngModel)]="contato.compra" name="compra">Compra</mat-checkbox>
+          <mat-checkbox [(ngModel)]="contato.outros" name="outros">Outros</mat-checkbox>
+        </section>
+      </div>
     </div>
     <div>
+      <div>
+        <section>
+          <mat-checkbox (change)="ckbUsarMesmoNumero($event.checked)">Usar o mesmo número para WhatsApp?</mat-checkbox>
+        </section>
+      </div>
+      <div class="form1">
         <div>
-            <section>
-                <mat-checkbox (change)="ckbUsarMesmoNumero($event.checked)">Usar o mesmo número para WhatsApp?</mat-checkbox>
+          <mat-form-field class="mat-form1">
+            <mat-label>WhatsApp:</mat-label>
+            <input matInput mask="(00) 0000-0000 || (00) 0 0000-0000" [(ngModel)]="contato.whatsApp"
+              name="whatsApp">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="mat-form1,  mat-form2">
+            <mat-label>e-mail:</mat-label>
+            <input matInput type="email" [(ngModel)]="contato.email" name="email">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form1">
+        <div class="mat-form1">
+          <legend>Prefere retorno por:</legend>
+          <section>
+            <mat-checkbox [(ngModel)]="contato.preferenciaTelefone" name="preferenciaTelefone">Telefone</mat-checkbox>
+            <mat-checkbox [(ngModel)]="contato.preferenciaWhatsApp" name="preferenciaWhatsApp">WhatsApp</mat-checkbox>
+            <mat-checkbox [(ngModel)]="contato.preferenciaEmail" name="preferenciaEmail">E-Mail</mat-checkbox>
+          </section>
+        </div>
+        <div>
+          <div>
+            <section class="mat-form2">
+              <mat-checkbox (change)="ckbPessoaJuridica($event.checked)">É pessoa jurídica?</mat-checkbox>
             </section>
+          </div>
+          <div>
+            <mat-form-field class="mat-form1, mat-form2">
+              <mat-label>Nome da Empresa:</mat-label>
+              <input matInput [(ngModel)]="contato.nomeEmpresa" name="nomeEmpresa" [disabled]=nome_empresa_estado>
+            </mat-form-field>
+          </div>
         </div>
-        <div class="form1">
-            <div>
-                <mat-form-field class="mat-form1">
-                    <mat-label>WhatsApp:</mat-label>
-                    <input matInput type="tel" mask="(00) 0000-0000 || (00) 0 0000-0000" [(ngModel)]="whatsApp_">
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field class="mat-form1,  mat-form2">
-                    <mat-label>e-mail:</mat-label>
-                    <input matInput type="email" [(ngModel)]="email">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="form1">
-            <div class="mat-form1">
-                <legend>Prefere retorno por:</legend>
-                <section>
-                    <mat-checkbox (change)="ckbTelefone($event.checked)">Telefone</mat-checkbox>
-                    <mat-checkbox (change)="ckbWhatsApp($event.checked)">WhatsApp</mat-checkbox>
-                    <mat-checkbox (change)="ckbE_Mail($event.checked)">E-Mail</mat-checkbox>
-                </section>
-            </div>
-            <div>
-                <div>
-                    <section class="mat-form2">
-                        <mat-checkbox (change)="ckbPessoaJuridica($event.checked)">É pessoa jurídica?</mat-checkbox>
-                    </section>
-                </div>
-                <div>
-                    <mat-form-field class="mat-form1, mat-form2">
-                        <mat-label>Nome da Empresa:</mat-label>
-                        <input matInput [(ngModel)]="nomeEmpresa" [disabled]=nome_empresa_estado>
-                    </mat-form-field>
-                </div>
-            </div>
+      </div>
+
+      <div class="form1">
+        <div>
+          <mat-form-field class="mat-form1">
+            <mat-label>Rua, Av, etc:</mat-label>
+            <input matInput [(ngModel)]="contato.rua" name="rua">
+          </mat-form-field>
         </div>
 
-        <div class="form1">
-            <div>
-                <mat-form-field class="mat-form1">
-                    <mat-label>Rua, Av, etc:</mat-label>
-                    <input matInput [(ngModel)]="rua">
-                </mat-form-field>
-            </div>
-
-            <div>
-                <mat-form-field class="mat-form3">
-                    <mat-label>Número:</mat-label>
-                    <input matInput [(ngModel)]="numero">
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field class="mat-form4">
-                    <mat-label>Bairro:</mat-label>
-                    <input matInput [(ngModel)]="bairro">
-                </mat-form-field>
-            </div>
+        <div>
+          <mat-form-field class="mat-form3">
+            <mat-label>Número:</mat-label>
+            <input matInput [(ngModel)]="contato.numero" name="numero">
+          </mat-form-field>
         </div>
-
-        <div class="form1">
-            <div>
-                <mat-form-field class="mat-form1">
-                    <mat-label>Cidade:</mat-label>
-                    <input matInput [(ngModel)]="cidade">
-                </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field class="mat-form3">
-                    <mat-label>UF</mat-label>
-                    <mat-select [(ngModel)]="uf" name="estado">
-                      @for (estado of estados; track estado) {
-                        <mat-option [value]="estado.value">{{estado.viewValue}}</mat-option>
-                      }
-                    </mat-select>
-                  </mat-form-field>
-            </div>
+        <div>
+          <mat-form-field class="mat-form4">
+            <mat-label>Bairro:</mat-label>
+            <input matInput [(ngModel)]="contato.bairro" name="bairro">
+          </mat-form-field>
         </div>
+      </div>
+
+      <div class="form1">
+        <div>
+          <mat-form-field class="mat-form1">
+            <mat-label>Cidade:</mat-label>
+            <input matInput [(ngModel)]="contato.cidade" name="cidade">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="mat-form3">
+            <mat-label>UF</mat-label>
+            <mat-select [(ngModel)]="contato.uf" name="uf">
+              @for (estado of estados; track estado) {
+              <mat-option [value]="estado.value">{{estado.viewValue}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
 
     </div>
     <!--Área de Texto PRIMENG https://primeng.org/textarea -->
     <div class="card flex justify-center, txt-area">
-        <label class="menssagem">Menssagem</label>
-        <textarea rows="8" cols="123" pTextarea [(ngModel)]="mensagem" [autoResize]="false"></textarea>
+      <label class="menssagem">Menssagem</label>
+      <textarea rows="8" cols="123" pTextarea [(ngModel)]="contato.mensagem" name="mensagem"
+        [autoResize]="false"></textarea>
     </div>
     <div class="largura-maxima">
-        <div>
-            <section>
-                <mat-checkbox (change)="ckbTermoPrivacidade($event.checked)">Li e concordo com política de privacidade?</mat-checkbox>
-            </section>
-        </div>
-        <div class="leia_termos"><p (click)="termosPrivacidade()">Leia aqui</p></div>
-        <div>
-            <button mat-flat-button class="btn-enviar" (click)="btnEnviar()">Enviar</button>
-        </div>
+      <div>
+        <section>
+          <mat-checkbox (change)="ckbTermosPrivacidade($event.checked)">Li e concordo com política de
+            privacidade?</mat-checkbox>
+        </section>
+      </div>
+      <div class="leia_termos">
+       <p (click)="termosPrivacidade_()">Leia aqui</p>
+      </div>
+      <div>
+        <button type="submit" mat-flat-button class="btn-enviar">Enviar</button>
+      </div>
     </div>
-</div>
+  </div>
+</form>

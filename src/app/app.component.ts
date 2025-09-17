@@ -9,7 +9,7 @@ import { PaginaServicosComponent } from './componentes/pagina-servicos/pagina-se
 import { PaginaContatoComponent } from './componentes/pagina-contato/pagina-contato.component';
 import { PaginaProdutosComponent } from './componentes/pagina-produtos/pagina-produtos.component';
 import { PaginaQuemSomosNosComponent } from './componentes/pagina-quem-somos-nos/pagina-quem-somos-nos.component';
-/*import { PaginaNossosValoresComponent } from './componentes/pagina-nossos-valores/pagina-nossos-valores.component';*/
+
 import { PaginaOndeEstamosComponent } from './componentes/pagina-onde-estamos/pagina-onde-estamos.component';
 import { AdminComponent } from './componentes/admin/admin.component';
 
@@ -24,7 +24,6 @@ import { AdminComponent } from './componentes/admin/admin.component';
       PaginaContatoComponent,
       PaginaProdutosComponent,
       PaginaQuemSomosNosComponent,
-      /*PaginaNossosValoresComponent,*/
       PaginaOndeEstamosComponent,
       AdminComponent
     ],

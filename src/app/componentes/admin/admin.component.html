@@ -1,24 +1,18 @@
+@if(permissao){
 
+<app-ocorrencias (enviaEstadoPermissão)="recebePermissao($event)"></app-ocorrencias>
 
-  @if(permissao){
+}@else {
 
-    <app-ocorrencias (enviaEstadoPermissão)="recebePermissao($event)"></app-ocorrencias>
+<div class="corpo">
+  <div class="campo">
+    <label>Administrador</label>
+    <mat-form-field class="mat-form1">
+      <mat-label>Senha:</mat-label>
+     <!-- <input id="enter" matInput type="password" [((ngModel))]="senha"> -->
+    </mat-form-field>
+    <button mat-flat-button class="btn-enviar" (click)="btnEntrar()">Entrar</button>
+  </div>
+</div>
 
-  }@else {
-
-    <div class="corpo">
-      <div class="campo">
-        <label>Administrador</label>
-        <mat-form-field class="mat-form1">
-          <mat-label>Senha:</mat-label>
-          <input id="enter" matInput type="password" [(ngModel)]="senha">
-        </mat-form-field>
-        <button mat-flat-button class="btn-enviar" (click)="btnEntrar()">Entrar</button>
-      </div>
-    </div>
-
-  }
-
-
-
-
+}
