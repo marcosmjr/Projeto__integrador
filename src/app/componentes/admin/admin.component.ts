@@ -9,9 +9,8 @@ import * as CryptoJS from 'crypto-js';
 
 import { OcorrenciasComponent } from './ocorrencias/ocorrencias.component';
 
-import { DadosIntefaceAdmin } from '../../servico/dados/dadosIntefaceAdmin';
-import { Dados } from '../../servico/dados/dados';
-
+import { DadosIntefaceAdmin } from '../servico/dados/dadosIntefaceAdmin';
+import { RequisicoesService } from '../servico/dados/requisicoes.service';
 
 @Component({
   selector: 'app-admin',
@@ -31,7 +30,7 @@ export class AdminComponent {
 
   dadosLoginApi: DadosIntefaceAdmin[] = [];
   senhaBancoDados: string = '';
-  constructor(private dadosAdminApi: Dados){ }
+  constructor(private dadosAdminApi: RequisicoesService){ }
 
 ngOnInit(): void {
   ////////////////Dados de Login//////////////

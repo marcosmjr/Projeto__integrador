@@ -4,18 +4,19 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 import { TextareaModule } from 'primeng/textarea';
 import { MatButtonModule } from '@angular/material/button';
 
 import { Contato } from './contato';
 import { Validacao } from './validação';
-import { NgxMaskDirective, /*NgxMaskPipe*/ } from 'ngx-mask';
+import { NgxMaskDirective } from 'ngx-mask';
 import { TermosPrivacidadeComponent } from './privacidade/termos-privacidade/termos-privacidade.component';
-import { JsonPipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 
+
+//import { RequisicaoService } from './requisicao.service';
+import { RequisicoesService } from '../servico/dados/requisicoes.service';
 
 interface UF {
   value: string;
@@ -34,8 +35,6 @@ interface UF {
     MatButtonModule,
     MatCheckbox,
     NgxMaskDirective,
-    //NgxMaskPipe
-    JsonPipe,
   ],
   templateUrl: './pagina-contato.component.html',
   styleUrl: './pagina-contato.component.css',
@@ -49,8 +48,9 @@ export class PaginaContatoComponent {
 
   nome_empresa_estado: boolean = true;
 
-
   private termosPrivacidade: boolean = false;
+
+  constructor(private requisicoesService:RequisicoesService){}
 
   // private ckbServicoPreenchido: boolean =false;
   // private ckbPreferenciaPreenchido: boolean =false;
@@ -134,57 +134,60 @@ export class PaginaContatoComponent {
  */
   onSubmit(){
 
-    /**
-     * Verifica se os termos de privacidade foram aceitos
-     */
-      // if (this.termosPrivacidade == false){
-      //   alert("Para enviar a mensagem é necessário ler e concordar com os termos de privacidade")
-      //   return;
-      //  }
+    // /**
+    //  * Verifica se os termos de privacidade foram aceitos
+    //  */
+    //   if (this.termosPrivacidade == false){
+    //     alert("Para enviar a mensagem é necessário ler e concordar com os termos de privacidade")
+    //     return;
+    //    }
 
 
-    /**
-     * Verifica se algum assunto foi escolhido
-     */
+    // /**
+    //  * Verifica se algum assunto foi escolhido
+    //  */
     // if (!this.contato.instalacao && !this.contato.manutencao && !this.contato.compra && !this.contato.outros){
     //     alert("Escolha um assunto");
     //     return;
     // }
 
 
-    /**
-     * Verifica se os campo nome e sobrenome estão vazios, neste caso
-     * emite um alerta e para a execução do envio do formulário
-     */
-    //if(this.contato.nome == '' || this.contato.sobrenome == ''){
-      //alert("O campo nome e sobrenome não devem estar vazio")
-      //return;
-    //}
+    // /**
+    //  * Verifica se os campo nome e sobrenome estão vazios, neste caso
+    //  * emite um alerta e para a execução do envio do formulário
+    //  */
+    // if(this.contato.nome == '' || this.contato.sobrenome == ''){
+    //   alert("O campo nome e sobrenome não devem estar vazio")
+    //   return;
+    // }
 
-    /**
-     * Chama a validação do email se ele não estiver vazio
-     */
+    // /**
+    //  * Chama a validação do email se ele não estiver vazio
+    //  */
     // if(!(this.valida.validaEmail(this.contato.email)) && this.contato.email != ''){
     //   alert('Digite um e-mail valido');
     //   return;
     // }
 
-    /**
-     * Chama a validação do número de telefone
-     */
+    // /**
+    //  * Chama a validação do número de telefone
+    //  */
     // if(!(this.valida.validaTelefone(this.contato.telefone)) || this.contato.telefone == ''){
     //   alert('Verifique se número do telefone está correto');
     // }
 
-    /**
-     * Chama a validação do número de WhatsApp se ele não estiver vazio
-     */
+    // /**
+    //  * Chama a validação do número de WhatsApp se ele não estiver vazio
+    //  */
     //  if(!(this.valida.validaTelefone(this.contato.whatsApp)) && this.contato.whatsApp != ''){
     //     alert('Verifique se número do WhatsApp está correto');
     //     return;
     //   }
 
-     console.log(this.contato);
+     this.requisicoesService.enviaDados(this.contato).subscribe(
+            data => console.log('Sucesso!', data),
+            error => console.log('Erro!', error)
+          );
 
   }
 
