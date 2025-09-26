@@ -184,10 +184,10 @@ export class PaginaContatoComponent {
     //     return;
     //   }
 
-     this.requisicoesService.enviaDados(this.contato).subscribe(
-            data => console.log('Sucesso!', data),
-            error => console.log('Erro!', error)
-          );
+    //  this.requisicoesService.enviaDados(this.contato).subscribe(
+    //         data => console.log('Sucesso!', data),
+    //         error => console.log('Erro!', error)
+    //       );
 
   }
 
