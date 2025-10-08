@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { DadosIntefaceAdmin } from './dadosIntefaceAdmin';
+import { DadosClienteInterface } from './dadosClienteInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,16 +21,14 @@ export class RequisicoesService {
   }
 
 
-
-
   /**
    * Envia dados para serem salvos pela api
    */
-    // apiPostUrl = 'http://localhost:8000/api/cadastrar';
+    apiPostUrl = 'http://localhost/PHP/projetoIntegrador/apiPHP/cliente/cadastro/contato';
 
-    // enviaDados(data: Contato): Observable<Contato>{
-    //   return this.http.post<Contato>(this.apiPostUrl, data)
-    // }
+    enviaDados(dadosClente: DadosClienteInterface[] ): Observable<DadosClienteInterface[]>{
+      return this.http.post<DadosClienteInterface[]>(this.apiPostUrl, dadosClente[0])
+    }
 
 
     /**

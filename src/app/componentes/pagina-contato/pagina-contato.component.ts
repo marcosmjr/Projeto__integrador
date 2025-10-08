@@ -17,6 +17,7 @@ import { TermosPrivacidadeComponent } from './privacidade/termos-privacidade/ter
 
 //import { RequisicaoService } from './requisicao.service';
 import { RequisicoesService } from '../servico/dados/requisicoes.service';
+import { DadosClienteInterface } from '../servico/dados/dadosClienteInterface';
 
 interface UF {
   value: string;
@@ -49,6 +50,17 @@ export class PaginaContatoComponent {
   nome_empresa_estado: boolean = true;
 
   private termosPrivacidade: boolean = false;
+
+  dadosClienteInterface: DadosClienteInterface[] = [];
+
+  servico: string = "";
+  preferencia: string = "";
+
+  resposta = {
+    error: false,
+    success: false,
+    message: ""
+  };
 
   constructor(private requisicoesService:RequisicoesService){}
 
@@ -184,10 +196,101 @@ export class PaginaContatoComponent {
     //     return;
     //   }
 
-    //  this.requisicoesService.enviaDados(this.contato).subscribe(
-    //         data => console.log('Sucesso!', data),
-    //         error => console.log('Erro!', error)
-    //       );
+    /**
+     * Envia os dados para o serviço de requisições enviar para a API salvar
+     * os dados do cliente no banco de dados
+     */
+
+
+    if(this.contato.instalacao && !this.contato.manutencao && !this.contato.compra && !this.contato.outros){
+      this.servico = "i"
+    }else if(!this.contato.instalacao && this.contato.manutencao && !this.contato.compra && !this.contato.outros){
+      this.servico = "m"
+    }else if(!this.contato.instalacao && !this.contato.manutencao && this.contato.compra && !this.contato.outros){
+      this.servico = "c"
+    }else if(!this.contato.instalacao && !this.contato.manutencao && !this.contato.compra && this.contato.outros){
+      this.servico = "o"
+    }else if(this.contato.instalacao && this.contato.manutencao && !this.contato.compra && !this.contato.outros){
+      this.servico = "im"
+    }else if(this.contato.instalacao && !this.contato.manutencao && this.contato.compra && !this.contato.outros){
+      this.servico = "ic"
+    }else if(this.contato.instalacao && !this.contato.manutencao && !this.contato.compra && !this.contato.outros){
+      this.servico = "io"
+    }else if(!this.contato.instalacao && this.contato.manutencao && this.contato.compra && !this.contato.outros){
+      this.servico = "mc"
+    }else if(!this.contato.instalacao && this.contato.manutencao && !this.contato.compra && this.contato.outros){
+      this.servico = "mo"
+    }else if(!this.contato.instalacao && !this.contato.manutencao && this.contato.compra && this.contato.outros){
+      this.servico = "co"
+    }else if(this.contato.instalacao && this.contato.manutencao && this.contato.compra && !this.contato.outros){
+      this.servico = "imc"
+    }else if(this.contato.instalacao && this.contato.manutencao && !this.contato.compra && this.contato.outros){
+      this.servico = "imo"
+    }else if(!this.contato.instalacao && this.contato.manutencao && this.contato.compra && this.contato.outros){
+      this.servico = "mco"
+    }else if(this.contato.instalacao && !this.contato.manutencao && this.contato.compra && this.contato.outros){
+      this.servico = "ico"
+    }else if(this.contato.instalacao && this.contato.manutencao && this.contato.compra && this.contato.outros){
+      this.servico = "imco"
+    }
+
+
+
+
+    if(this.contato.preferenciaEmail && !this.contato.preferenciaTelefone && !this.contato.preferenciaWhatsApp){
+      this.preferencia = "e";
+    } else if(!this.contato.preferenciaEmail && this.contato.preferenciaTelefone && !this.contato.preferenciaWhatsApp){
+      this.preferencia = "t";
+    } else if(!this.contato.preferenciaEmail && !this.contato.preferenciaTelefone && this.contato.preferenciaWhatsApp){
+      this.preferencia = "w";
+    } else if(this.contato.preferenciaEmail && this.contato.preferenciaTelefone && !this.contato.preferenciaWhatsApp){
+      this.preferencia = "et";
+    } else if(!this.contato.preferenciaEmail && this.contato.preferenciaTelefone && this.contato.preferenciaWhatsApp){
+      this.preferencia = "tw";
+    } else if(this.contato.preferenciaEmail && !this.contato.preferenciaTelefone && this.contato.preferenciaWhatsApp){
+      this.preferencia = "ew";
+    } else if(this.contato.preferenciaEmail && this.contato.preferenciaTelefone && this.contato.preferenciaWhatsApp){
+      this.preferencia = "etw";
+    } else
+
+
+    this.dadosClienteInterface = [{
+      nome: this.contato.nome,
+      sobrenome: this.contato.sobrenome,
+      telefone: this.contato.telefone,
+      whatsApp: this.contato.whatsApp,
+      email: this.contato.email,
+      rua: this.contato.rua,
+      numero: this.contato.numero,
+      bairro: this.contato.bairro,
+      cidade: this.contato.cidade,
+      uf: this.contato.uf,
+      servicos: this.servico,
+      preferencia: this.preferencia,
+      nomeEmpresa: this.contato.nomeEmpresa,
+      mensagem: this.contato.mensagem,
+      dataOcorrencia: "",
+      dataAtendimento: "",
+      ocorrenciaAtendida: ""
+    }];
+
+     this.requisicoesService.enviaDados(this.dadosClienteInterface).subscribe(
+      {
+
+      next: (res) => {
+
+        const obj = res as {[key: string]: any}; // Cast explicito
+
+        this.resposta['error'] = obj['error'];
+        this.resposta['success'] = obj['success'];
+        this.resposta['message'] = obj['message'];
+
+      },
+
+      error:(err) => {
+        console.error('Erro ao enviar', err);
+      }
+     });
 
   }
 
