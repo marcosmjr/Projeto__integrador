@@ -132,7 +132,7 @@
     <div class="largura-maxima">
       <div>
         <section>
-          <mat-checkbox (change)="ckbTermosPrivacidade($event.checked)">Li e concordo com política de
+          <mat-checkbox (change)="ckbTermosPrivacidade($event.checked)" [(ngModel)]="termosPriv" name="termosPriv" >Li e concordo com política de
             privacidade?</mat-checkbox>
         </section>
       </div>

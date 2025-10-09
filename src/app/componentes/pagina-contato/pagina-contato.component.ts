@@ -62,6 +62,7 @@ export class PaginaContatoComponent {
 
   mesmoWhasApp: boolean = false;
   pj: boolean = false;
+  termosPriv: boolean = false;
 
   nome: string = '';
   sobrenome: string = '';
@@ -237,6 +238,7 @@ export class PaginaContatoComponent {
     this.mensagem = '';
     this.mesmoWhasApp = false;
     this.pj = false;
+    this.termosPriv = false;
    }
 
 
@@ -320,8 +322,6 @@ export class PaginaContatoComponent {
       dataAtendimento: "",
       atendida_ocorrencias: ""
     }];
- console.log(this.preferenciaEmail , this.preferenciaTelefone , this.preferenciaWhatsApp , " -- " + this.preferencia)
- console.log(this.instalacao, this.manutencao, this.compra, this.outros, " --- " + this.servico)
 
     /**
      * Envia os dados para o serviço de requisições que envia para a API salvar
