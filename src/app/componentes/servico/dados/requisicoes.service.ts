@@ -26,8 +26,9 @@ export class RequisicoesService {
    */
     apiPostUrl = 'http://localhost/PHP/projetoIntegrador/apiPHP/cliente/cadastro/contato';
 
-    enviaDados(dadosClente: DadosClienteInterface[] ): Observable<DadosClienteInterface[]>{
-      return this.http.post<DadosClienteInterface[]>(this.apiPostUrl, dadosClente[0])
+    enviaDados(dadosCliente: DadosClienteInterface[] ): Observable<DadosClienteInterface[]>{
+      // console.log(dadosCliente[0].preferencia_cliente + " --- " , dadosCliente[0].servico_ocorrencias + " --- " + dadosCliente[0].nome_empresa_cliente);
+      return this.http.post<DadosClienteInterface[]>(this.apiPostUrl, dadosCliente[0]);
     }
 
 

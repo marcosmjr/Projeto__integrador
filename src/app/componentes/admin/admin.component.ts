@@ -7,7 +7,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { OcorrenciasComponent } from './ocorrencias/ocorrencias.component';
 import { RequisicoesService } from '../servico/dados/requisicoes.service';
-import { JsonPipe } from '@angular/common';
 import { DadosIntefaceAdmin } from '../servico/dados/dadosIntefaceAdmin';
 
 @Component({
@@ -19,7 +18,6 @@ import { DadosIntefaceAdmin } from '../servico/dados/dadosIntefaceAdmin';
     MatIconModule,
     FormsModule,
     OcorrenciasComponent,
-    JsonPipe,
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
