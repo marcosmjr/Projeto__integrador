@@ -298,8 +298,6 @@ export class PaginaContatoComponent {
         return;
       }
 
-
-
     this.converterEscolhasCheckBox(); //Converte as escolhas de serviço e canais de comunicação com cliente para string
 
   //Preenche a interface com os dados do cliente para enviar para a API
@@ -330,8 +328,7 @@ export class PaginaContatoComponent {
 
      this.requisicoesService.enviaDados(this.dadosClienteInterface).subscribe(
       {
-
-      next: (res) => {
+        next: (res) => {
 
         const obj = res as {[key: string]: any}; // Cast explicito
 

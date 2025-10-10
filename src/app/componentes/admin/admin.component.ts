@@ -36,7 +36,7 @@ export class AdminComponent {
 
   dadosInterfaceLogin: DadosIntefaceAdmin[] = [];
 
-  constructor(private requisicoes: RequisicoesService){ }
+  constructor(private requisicoes: RequisicoesService){}
 
 
 recebePermissao(event: boolean){

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
@@ -7,6 +7,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { RequisicoesService } from '../../servico/dados/requisicoes.service';
+import { Ocorrencias } from '../../servico/dados/dados-cliente-recebe-bdinterface';
 
 
 @Component({
@@ -23,20 +25,42 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
   templateUrl: './ocorrencias.component.html',
   styleUrl: './ocorrencias.component.css'
 })
-export class OcorrenciasComponent {
 
-@Output() enviaEstadoPermissão = new EventEmitter<boolean>();
+export class OcorrenciasComponent  implements OnInit{
 
-enviaPermissao(): void{
-  this.enviaEstadoPermissão.emit(false);
-}
-
-btnVoltar() {
-this.enviaPermissao();
-}
+  ocorrencias: Ocorrencias[] = [];
 
 
-displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  constructor(private requisicoesService: RequisicoesService){}
+
+
+  ngOnInit(): void {
+
+    this.requisicoesService.recebeDados().subscribe({
+
+      next: (dados) => {
+        this.ocorrencias = dados.data;
+      },
+
+      error: (erro) => {
+        console.error('Erro ao obter dados', erro);
+      }
+
+    });
+
+  }
+
+  @Output() enviaEstadoPermissão = new EventEmitter<boolean>();
+
+  enviaPermissao(): void{
+    this.enviaEstadoPermissão.emit(false);
+  }
+
+  btnVoltar() {
+  this.enviaPermissao();
+  }
+
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator)
@@ -47,16 +71,18 @@ displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   }
 }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+  export interface PeriodicElement {
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
+  }
+
+
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+ /* {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
   {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
   {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
@@ -74,6 +100,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
   {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
   {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
-  {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
+  {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},*/
 ];
 

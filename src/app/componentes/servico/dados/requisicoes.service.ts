@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { DadosIntefaceAdmin } from './dadosIntefaceAdmin';
 import { DadosClienteInterface } from './dadosClienteInterface';
+import { RespostaAPI } from './dados-cliente-recebe-bdinterface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,6 @@ export class RequisicoesService {
       return this.http.post<DadosIntefaceAdmin[]>(this.urlAdmin, dadosAdmin[0]);
   }
 
-
   /**
    * Envia dados para serem salvos pela api
    */
@@ -30,36 +30,18 @@ export class RequisicoesService {
       return this.http.post<DadosClienteInterface[]>(this.apiPostUrl, dadosCliente[0]);
     }
 
-
     /**
      * Recebe dados do banco de dados
      */
 
-    // apiGetUrl = 'http://localhost:8000/api/ler';
+    apiGetUrl = 'http://localhost/PHP/projetoIntegrador/apiPHP/cliente/buscatodos';
 
-    // private dadosClientes: DadosClienteInterface[] = [];
+    recebeDados(): Observable<RespostaAPI>{
+      return this.http.get<RespostaAPI>(this.apiGetUrl);
 
-    // recebeDados(): Observable<DadosClienteInterface[]>{
-    //   return this.http.get<DadosClienteInterface[]>(this.apiGetUrl).pipe(
-    //     map(dados => {
-    //         this.dadosClientes = dados;
-    //         return this.dadosClientes;
-    //       },
+    }
 
-    //       (erro: any)=>{
-    //       console.error('Erro ao carregar dados da API:', erro);
-    //       }
 
-    //     ),
-    //   );
 
-    // }
 
-    //   getDadosAdmin(): DadosIntefaceAdmin[]{
-    //       return this.dadosAdmin;
-    //   }
-
-    //   getReceberDados(): DadosClienteInterface[]{
-    //     return this.dadosClientes;
-    //   }
 }
