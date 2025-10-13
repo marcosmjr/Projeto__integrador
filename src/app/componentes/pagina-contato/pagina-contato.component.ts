@@ -86,8 +86,6 @@ export class PaginaContatoComponent {
 
   constructor(private requisicoesService:RequisicoesService){}
 
-  // private ckbServicoPreenchido: boolean =false;
-  // private ckbPreferenciaPreenchido: boolean =false;
 
 
   /**

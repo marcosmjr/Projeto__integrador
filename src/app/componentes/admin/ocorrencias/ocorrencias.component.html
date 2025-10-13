@@ -18,40 +18,54 @@
         <th mat-header-cell *matHeaderCellDef> Dados </th>
         <td mat-cell *matCellDef="let element">
           <div>
-            <table>
+            <table class="fontTabela">
+              <th id="th"></th>
               <tr>
-                <td style="width: 110px;">Nome:.....................</td>
+                <td class="nome fontTabela"><strong>Nome:................  </strong></td>
                 <td>{{element.nome_cliente}} <span> </span> {{element.sobrenome_cliente}}</td>
               </tr>
               <tr>
-                <td>Serviço solicitado:.. </td>
+                <td class="servico fontTabela"><strong>Serviço solicitado:..  </strong></td>
                 <td>{{element.servico_ocorrencias}}</td>
               </tr>
 
               <tr>
-                <td>Data do pedido:...... </td>
+                <td class="dataPerdido fontTabela"><strong>Data do pedido:......  </strong></td>
                 <td>{{element.dataOcorrencia}}</td>
               </tr>
 
               <tr>
-                <td>Nome da Empresa:. </td>
+                <td class="fontTabela"><strong>Nome da Empresa:.  </strong></td>
                 <td>{{element.nome_empresa_cliente }}</td>
               </tr>
 
               <tr>
-                <td>Logradouro:............. </td>
-                <td style="width: 250px;">{{element.rua_cliente}}</td>
-                <td style="width: 100px;"> No: {{element.numero_cliente}}</td>
-                <td style="width: 100px;"> Bairro:  {{element.bairro_cliente}}</td>
-                <td style="width: 200px;"> Cidade:  {{element.cidade_cliente}}</td>
-                <td> UF:  {{element.estado_cliente}}</td>
+                <td><strong>Logradouro:..........  </strong></td>
+                <td>{{element.rua_cliente}}</td>
+              </tr>
+
+              <tr>
+                <td><strong>No:..................  </strong></td>
+                <td>{{element.numero_cliente}}</td>
+              </tr>
+              <tr>
+                <td><strong>Bairro:..............  </strong></td>
+                <td>{{element.bairro_cliente}}</td>
+              </tr>
+              <tr>
+                <td><strong>Cidade:..............  </strong></td>
+                <td>{{element.cidade_cliente}}</td>
+              </tr>
+              <tr>
+                <td><strong>UF:..................  </strong></td>
+                <td>{{element.estado_cliente}}</td>
               </tr>
 
             </table>
-            <div style=" display: block;">
-              <div style="width: 50px;"></div>
-              <div><legend style="font-size: 10px;">Menssagem</legend>
-                <input style="width: 500px; height: 100px; border: none;" type="text" name="textTab" id="texTab" value="{{element.mensagem_ocorrencias}}"> </div>
+            <div class="mensagem">
+              <div></div>
+              <div><legend><strong>Menssagem:</strong></legend>
+                <input type="text" name="textTab" id="texTab" value="{{element.mensagem_ocorrencias}}"> </div>
             </div>
 
           </div>
