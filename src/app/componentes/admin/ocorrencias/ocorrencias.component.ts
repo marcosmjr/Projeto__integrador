@@ -75,42 +75,69 @@ export class OcorrenciasComponent  implements OnInit{
         const itensTabela = new ItensTabela;
 
 
-        let entradaServico: string = dados.data[i]['servico_ocorrencias'];
+        let entradaServico: string = dados.data[i]['servico_ocorrencias'] != null ? dados.data[i]['servico_ocorrencias'] : "";
         let servico: string = "";
-        let preferencia: string = "";
 
-        if (entradaServico[0] == "i"){
-          servico = "Instalação";
-        } else if (entradaServico[0] == "m"){
-          servico = "Manutenção";
-        } else if (entradaServico[0] == "c"){
-          servico = "Compra";
-        } else if (entradaServico[0] == "o"){
-          servico = "Outros"
+        let element1: string = entradaServico[0]?? "";
+        let element2: string = entradaServico[1]?? "";
+        let element3: string = entradaServico[2]?? "";
+        let element4: string = entradaServico[3]?? "";
+
+        if (element1 == "i"){
+          element1 = "Instalação";
+        } else if(element1 == "m"){
+          element1 = "Manutenção";
+        } else if (element1 == "c"){
+          element1 = "Compra";
+        } else if (element1 == "o"){
+          element1 = "Outros";
         }
 
-        if(entradaServico[0] != "m" && entradaServico[0] != "o" && entradaServico[1] == "m"){
-          servico = servico + ", Manutenção"
-        } else if (entradaServico[0] != "c" && entradaServico[0] != "o" && entradaServico[1] == "c"){
-          servico = servico + ", Compra";
-        } else if (entradaServico[0] != "o" && entradaServico[1] == "o"){
-          servico = servico + ", Outros";
+        if (element2 == "i"){
+          element2 = "Instalação";
+        } else if (element2 == "m"){
+          element2 = "Manutenção";
+        } else if ( element2 == "c"){
+          element2 = "Compra";
+        } else if (element2 == "o"){
+          element2 = "Outros";
         }
 
-        if(entradaServico[0] != "c" && entradaServico[1] != "c" && entradaServico[0] != "o" && entradaServico[2] == "c"){
-          servico = servico + ", Compra"
-        } else if (entradaServico[0] != "o" && entradaServico[1] != "o" && entradaServico[2] == "o"){
-          servico = servico + ", Outros";
+        if (element3 == "i"){
+          element3 = "Instalação";
+        } else if (element3 == "m"){
+          element3 = "Manutenção";
+        } else if ( element3 == "c"){
+          element3 = "Compra";
+        } else if (element3 == "o"){
+          element3 = "Outros";
         }
 
-        if (entradaServico[0] != "o" && entradaServico[1] != "o" && entradaServico[2] != "o" && entradaServico[3] == "o"){
-          servico = servico + ", Outros";
+        if (element4 == "i"){
+          element4 = "Instalação";
+        } else if (element4 == "m"){
+          element4 = "Manutenção";
+        } else if (element4 == "c"){
+          element4 = "Compra";
+        } else if (element4 == "o"){
+          element4 = "Outros";
         }
 
-
+        if (element1 != ""){
+          servico = element1;
+        }
+        if (element2 != ""){
+          servico = servico + ", " + element2;
+        }
+        if (element3 != ""){
+          servico = servico + ", " + element3;
+        }
+        if (element4 != ""){
+          servico = servico + ", " + element4;
+        }
 
         itensTabela['id_ocorrencias'] = dados.data[i]['id_ocorrencias'];
-        itensTabela['servico_ocorrencias'] = servico; //dados.data[i]['servico_ocorrencias'];
+        itensTabela['servico_ocorrencias'] = servico;
         itensTabela['mensagem_ocorrencias'] = dados.data[i]['mensagem_ocorrencias'];
         itensTabela['dataOcorrencia'] = dados.data[i]['data_ocorrencias'];
         itensTabela['dataAtendimento'] = dados.data[i]['data_atendimento'];
@@ -144,6 +171,51 @@ export class OcorrenciasComponent  implements OnInit{
           itensTabela['preferencia_cliente'] = dados.data[i]['preferencia_cliente_juridico'];
           itensTabela['nome_empresa_cliente'] = dados.data[i]['nome_empresa_cliente_juridico'];
         }
+
+        let entradaPreferencia: string = "";
+        let preferencia: string = "";
+
+        entradaPreferencia = itensTabela['preferencia_cliente'] != null ? itensTabela['preferencia_cliente'] : "" ;
+
+        let elemento1: string = entradaPreferencia[0]?? "";
+        let elemento2: string = entradaPreferencia[1]?? "";
+        let elemento3: string = entradaPreferencia[2]?? "";
+
+        if(elemento1 == "t"){
+          elemento1 = "Telefone";
+        }else if (elemento1 == "w"){
+          elemento1 = "WhatsApp";
+        } else if (elemento1 == "e"){
+          elemento1 = "E-Mail"
+        }
+
+        if(elemento2 == "t"){
+          elemento2 = "Telefone";
+        }else if (elemento2 == "w"){
+          elemento2 = "WhatsApp";
+        } else if (elemento2 == "e"){
+          elemento2 = "E-Mail";
+        }
+
+        if(elemento3 == "t"){
+          elemento3 = "Telefone";
+        }else if (elemento3 == "w"){
+          elemento3 = "WhatsApp";
+        } else if (elemento3 == "e"){
+          elemento3 = "E-Mail";
+        }
+
+       if (elemento1 != ""){
+        preferencia = elemento1;
+       }
+       if (elemento2 != ""){
+        preferencia = preferencia + ", " + elemento2;
+       }
+       if (elemento3 != ""){
+        preferencia = preferencia + ", " + elemento3;
+       }
+
+        itensTabela['preferencia_cliente'] = preferencia;
 
         this.arrayItensTabela[i] = itensTabela;
 
