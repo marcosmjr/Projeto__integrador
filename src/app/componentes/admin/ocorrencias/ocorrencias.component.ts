@@ -165,6 +165,3 @@ export class OcorrenciasComponent  implements OnInit{
     this.dataSource.paginator = this.paginator;
   }
 }
-
-
-
