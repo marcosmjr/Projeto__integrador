@@ -1,6 +1,7 @@
+<!--Componentes Material https://material.angular.io/-->
 <form #formularioContato="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
   <div class="moldura">
-<<<<<<< HEAD
     <div class="form1">
       <div>
         <mat-form-field class="mat-form1">
@@ -15,28 +16,11 @@
         </mat-form-field>
       </div>
     </div>
-=======
-    <div class="home-content">
-      
-      <!-- Nome e Sobrenome -->
-      <div class="form-row-column nome-sobrenome">
-  <mat-form-field class="form-field">
-    <mat-label>Nome:</mat-label>
-    <input matInput [(ngModel)]="contato.nome" name="nome" required>
-  </mat-form-field>
->>>>>>> bf7ad38 (Ajustes de Front-End/Responsividade)
 
-  <mat-form-field class="form-field">
-    <mat-label>Sobrenome:</mat-label>
-    <input matInput [(ngModel)]="contato.sobrenome" name="sobrenome" required>
-  </mat-form-field>
-</div>
-
-      <!-- Telefone e Serviços -->
-      <div class="form-row-column telefone">
-        <mat-form-field class="form-field">
+    <div class="form1">
+      <div>
+        <mat-form-field class="mat-form1">
           <mat-label>Telefone:</mat-label>
-<<<<<<< HEAD
 
           <input matInput mask="(00) 0000-0000 || (00) 0 0000-0000" [(ngModel)]="telefone"
             name="telefone" required>
@@ -71,36 +55,10 @@
             <mat-label>e-mail:</mat-label>
             <input matInput type="email" [(ngModel)]="email" name="email">
           </mat-form-field>
-=======
-          <input matInput mask="(00) 0000-0000 || (00) 0 0000-0000" [(ngModel)]="contato.telefone" name="telefone" required>
-        </mat-form-field>
-
-        <div class="checkbox-group">
-          <legend>Serviços:</legend>
-          <mat-checkbox [(ngModel)]="contato.instalacao" name="instalacao">Instalação</mat-checkbox>
-          <mat-checkbox [(ngModel)]="contato.manutencao" name="manutecao">Manutenção</mat-checkbox>
-          <mat-checkbox [(ngModel)]="contato.compra" name="compra">Compra</mat-checkbox>
-          <mat-checkbox [(ngModel)]="contato.outros" name="outros">Outros</mat-checkbox>
->>>>>>> bf7ad38 (Ajustes de Front-End/Responsividade)
         </div>
       </div>
-
-      <!-- WhatsApp e Email -->
-      <div class="form-row-column contatos">
-        <mat-form-field class="form-field">
-          <mat-label>WhatsApp:</mat-label>
-          <input matInput mask="(00) 0000-0000 || (00) 0 0000-0000" [(ngModel)]="contato.whatsApp" name="whatsApp">
-        </mat-form-field>
-
-        <mat-form-field class="form-field">
-          <mat-label>E-mail:</mat-label>
-          <input matInput type="email" [(ngModel)]="contato.email" name="email">
-        </mat-form-field>
-      </div>
-
-      <!-- Preferência de Contato e Pessoa Jurídica -->
-      <div class="form-row">
-        <div class="checkbox-group">
+      <div class="form1">
+        <div class="mat-form1">
           <legend>Prefere retorno por:</legend>
           <section>
             <mat-checkbox [(ngModel)]="preferenciaTelefone" name="preferenciaTelefone">Telefone</mat-checkbox>
@@ -177,55 +135,11 @@
           <mat-checkbox (change)="ckbTermosPrivacidade($event.checked)" [(ngModel)]="termosPriv" name="termosPriv" >Li e concordo com política de
             privacidade?</mat-checkbox>
         </section>
-          <mat-checkbox [(ngModel)]="contato.preferenciaTelefone" name="preferenciaTelefone">Telefone</mat-checkbox>
-          <mat-checkbox [(ngModel)]="contato.preferenciaWhatsApp" name="preferenciaWhatsApp">WhatsApp</mat-checkbox>
-          <mat-checkbox [(ngModel)]="contato.preferenciaEmail" name="preferenciaEmail">E-mail</mat-checkbox>
-        </div>
       </div>
-
-      <!-- Endereço -->
-      <div class="form-row-column endereco">
-        <mat-form-field class="form-field">
-          <mat-label>Rua, Av, etc:</mat-label>
-          <input matInput [(ngModel)]="contato.rua" name="rua">
-        </mat-form-field>
-
-        <mat-form-field class="form-field">
-          <mat-label>Número:</mat-label>
-          <input matInput [(ngModel)]="contato.numero" name="numero">
-        </mat-form-field>
-
-        <mat-form-field class="form-field">
-          <mat-label>Bairro:</mat-label>
-          <input matInput [(ngModel)]="contato.bairro" name="bairro">
-        </mat-form-field>
+      <div class="leia_termos">
+       <p (click)="termosPrivacidade_()">Leia aqui</p>
       </div>
-
-      <div class="form-row-column endereco">
-        <mat-form-field class="form-field">
-          <mat-label>Cidade:</mat-label>
-          <input matInput [(ngModel)]="contato.cidade" name="cidade">
-        </mat-form-field>
-
-        <mat-form-field class="form-field">
-          <mat-label>UF</mat-label>
-          <mat-select [(ngModel)]="contato.uf" name="uf">
-            @for (estado of estados; track estado) {
-            <mat-option [value]="estado.value">{{estado.viewValue}}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-      </div>
-
-      <!-- Mensagem -->
-      <div class="form-row">
-        <label>Mensagem</label>
-        <textarea rows="8" pTextarea [(ngModel)]="contato.mensagem" name="mensagem"></textarea>
-      </div>
-
-      <!-- Termos e botão enviar -->
-      <div class="form-row termos-row">
-        <mat-checkbox (change)="ckbTermosPrivacidade($event.checked)">Li e concordo com política de privacidade</mat-checkbox>
+      <div>
         <button type="submit" mat-flat-button class="btn-enviar">Enviar</button>
       </div>
     </div>
