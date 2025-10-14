@@ -13,6 +13,8 @@ import { PaginaQuemSomosNosComponent } from './componentes/pagina-quem-somos-nos
 import { PaginaOndeEstamosComponent } from './componentes/pagina-onde-estamos/pagina-onde-estamos.component';
 import { AdminComponent } from './componentes/admin/admin.component';
 
+
+
 @Component({
   selector: 'app-root',
   imports: [

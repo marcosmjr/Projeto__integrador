@@ -12,7 +12,6 @@ import { Ocorrencias, RespostaAPI } from '../../servico/dados/dados-cliente-rece
 import { ItensTabela } from './itens-tabela';
 
 
-
 @Component({
   selector: 'app-ocorrencias',
   imports: [
@@ -23,7 +22,6 @@ import { ItensTabela } from './itens-tabela';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-
 ],
   templateUrl: './ocorrencias.component.html',
   styleUrl: './ocorrencias.component.css'
@@ -221,19 +219,31 @@ export class OcorrenciasComponent  implements OnInit{
 
      }
 
-
-
+      this.arrayItensTabela.sort((a, b) => b.id_ocorrencias - a.id_ocorrencias  );
   }
 
+  ordenaCrescente(){
+    this.arrayItensTabela.sort((a, b) => a.id_ocorrencias - b.id_ocorrencias  );
+    this.dataSource.data = this.arrayItensTabela;
+  }
+
+  ordenaDecrescente(){
+    this.arrayItensTabela.sort((a, b) => b.id_ocorrencias - a.id_ocorrencias  );
+    this.dataSource.data = this.arrayItensTabela;
+  }
 
 
   displayedColumns: string[] = ['linha', 'dadosCliente', 'lixeira'];
   dataSource = new MatTableDataSource<ItensTabela>(this.arrayItensTabela);
 
+
+
   @ViewChild(MatPaginator)
   paginator: MatPaginator = new MatPaginator;
 
+
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+
   }
 }

@@ -26,7 +26,7 @@ export class AdminComponent {
 
   usuario: string = 'Administrador';
   senha: string = '';
-  permissao: boolean = false;
+  permissao: boolean = true; //************************ */
 
    resposta = {
     error: false,

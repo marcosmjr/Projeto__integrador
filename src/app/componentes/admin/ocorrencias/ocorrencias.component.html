@@ -1,5 +1,14 @@
 
 <div >
+  <div class="div_btn_ordena">
+    <div>
+      <button class="btn-css" mat-button (click)="ordenaCrescente()">Mais antigo primeiro</button>
+    </div>
+    <div>
+      <button class="btn-css" mat-button (click)="ordenaDecrescente()">Mais novo primeiro</button>
+    </div>
+  </div>
+
   <span style="color: white;">{{arrayItensTabela[0].bairro_cliente}}</span>
   <div class="mat-elevation-z8">
 
@@ -85,7 +94,7 @@
             <div class="mensagem">
               <div></div>
               <div><legend><strong>Menssagem:</strong></legend>
-                <input type="text" name="textTab" id="texTab" value="{{element.mensagem_ocorrencias}}"> </div>
+                <input class="fontTabela" type="text" name="textTab" id="texTab" value="{{element.mensagem_ocorrencias}}"> </div>
             </div>
 
           </div>
@@ -96,7 +105,13 @@
 
       <ng-container matColumnDef="lixeira">
         <th mat-header-cell *matHeaderCellDef> Lixeira </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}}
+          <div>
+            <img style="width: 32px; height: auto;" src="/img/icons/delete_42dp_434343_FILL0_wght400_GRAD0_opsz40.svg" alt="Exclui Cadastro ">
+          </div>
+        </td>
+
+
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -112,5 +127,5 @@
 
 </div>
 <div class="btnVoltar">
-  <button mat-flat-button class="btn-enviar" (click)="btnVoltar()">voltar</button>
+  <button mat-flat-button class="btn-css" (click)="btnVoltar()">voltar</button>
 </div>
