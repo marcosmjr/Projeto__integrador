@@ -246,15 +246,15 @@ export class OcorrenciasComponent  implements OnInit{
     this.dataSource.paginator = this.paginator;
   }
 
-  apagaCadastro(id: number){
+  apagarCadastro(id: number){
 
-      if (confirm('Quer realmente apagar o usuário?')){
+      if (confirm('Quer realmente apagar o cadastro?')){
 
-        this.requisicoesService.apagaCadastro(id).subscribe({
+        this.requisicoesService.apagarCadastro(id).subscribe({
           next: ()=>{
             let novoArray = this.arrayItensTabela.filter(iten => iten.id_ocorrencias != id)
-            this.dataSource.data = novoArray
-            alert('Cadastro apagado com sucesso');
+            this.arrayItensTabela = novoArray;
+            this.ordenaDecrescente();
           },
 
           error: (err) => {

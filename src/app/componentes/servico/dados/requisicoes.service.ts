@@ -47,7 +47,7 @@ export class RequisicoesService {
 
     apiDelete = 'http://localhost/PHP/projetoIntegrador/apiPHP/cliente/remove'
 
-    apagaCadastro(id: number){
+    apagarCadastro(id: number){
 
       return this.http.delete(`${this.apiDelete}/${id}`);
 
