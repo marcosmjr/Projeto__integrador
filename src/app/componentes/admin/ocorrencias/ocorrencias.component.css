@@ -18,13 +18,21 @@ table {
   font-size: 16px;
 }
 
-#th {
+#th-legenda {
   width: 200px;
 }
 
-.nome {
-  width: 50px;
+.area-menssagem {
+  text-align: left;
+  vertical-align: top;
+  max-width: 1000px;
+  width: 100%;
+  height: 100px;
+  border: 1px, solid gray;
+  border-radius: 5px;
+  resize: none;
 }
+
 
 .mensagem {
   margin-top: 20px;
@@ -36,18 +44,15 @@ table {
   font-size: 16px;
 }
 
-.mensagem input {
-  width: 1000px;
-  height: 100px;
-  border: none;
+.font-textarea{
+  font-family: 'Courier New', Courier, monospace;
   font-size: 16px;
-  text-align: left;
 }
+
 
 .div_btn_ordena{
   display: flex;
   flex-direction: row-reverse;
- /* align-items: end;*/
 }
 
 .btn-css {
