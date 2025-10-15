@@ -29,7 +29,6 @@ import { ItensTabela } from './itens-tabela';
 
 export class OcorrenciasComponent  implements OnInit{
 
-  ocorrencias: Ocorrencias[] = [];
   arrayItensTabela: ItensTabela[] = []
 
 
@@ -45,7 +44,6 @@ export class OcorrenciasComponent  implements OnInit{
     this.requisicoesService.recebeDados().subscribe({
 
       next: (dados) => {
-        this.ocorrencias = dados.data;
 
         this.arrayTabela(dados);
 
@@ -71,7 +69,7 @@ export class OcorrenciasComponent  implements OnInit{
 
 
   arrayTabela(dados: RespostaAPI){
-      for(var i = 0; i < this.ocorrencias.length; i++){
+      for(var i = 0; i < dados.data.length; i++){
 
         const itensTabela = new ItensTabela;
 
