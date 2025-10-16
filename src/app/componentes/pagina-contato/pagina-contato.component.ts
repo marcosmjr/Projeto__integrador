@@ -84,6 +84,29 @@ export class PaginaContatoComponent {
   nomeEmpresa: string = '';
   mensagem: string = '';
 
+  contato = {
+    nome: '',
+    sobrenome: '',
+    telefone: '',
+    whatsApp: '',
+    email: '',
+    rua: '',
+    numero: '',
+    bairro: '',
+    cidade: '',
+    uf: '',
+    instalacao: false,
+    manutencao: false,
+    compra: false,
+    outros: false,
+    preferenciaTelefone: false,
+    preferenciaWhatsApp: false,
+    preferenciaEmail: false,
+    nomeEmpresa: '',
+    mensagem: '',
+    termosPriv: false
+  };
+
   constructor(private requisicoesService:RequisicoesService){}
 
 
