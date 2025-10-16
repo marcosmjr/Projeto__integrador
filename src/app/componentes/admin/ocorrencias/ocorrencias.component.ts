@@ -8,7 +8,7 @@ import {ViewChild} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { RequisicoesService } from '../../servico/dados/requisicoes.service';
-import { Ocorrencias, RespostaAPI } from '../../servico/dados/dados-cliente-recebe-bdinterface';
+import { RespostaAPI } from '../../servico/dados/dados-cliente-recebe-bdinterface';
 import { ItensTabela } from './itens-tabela';
 
 
