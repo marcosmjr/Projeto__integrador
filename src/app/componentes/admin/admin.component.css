@@ -23,3 +23,23 @@
 
 }
 
+/* Responsividade */
+@media (max-width: 768px) {
+  .campo {
+    position: relative;
+    width: 80%;
+    left: 10%;
+    top: 20%;
+  }
+
+  .btn-enviar {
+    width: 100%;
+    max-width: none;
+  }
+
+  .corpo {
+    min-height: auto;
+    padding-bottom: 40px;
+  }
+}
+
